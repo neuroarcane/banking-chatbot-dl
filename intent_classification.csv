@@ -1,0 +1,501 @@
+id,text,intent,source
+Q0001,Show the correlation between SPY and ESGV over 5 years.,DATA_QUERY,template
+Q0002,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0003,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0004,My 66-year-old client has high risk tolerance and a 7-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0005,What is the ideal portfolio for someone aged 43 with a high risk profile and 3-year investment horizon?,RECOMMENDATION,template
+Q0006,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0007,What is the difference between ESG-Tilt Balanced and Aggressive Growth?,QUALITATIVE,template
+Q0008,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0009,"Suggest an investment strategy for a 40-year-old, high risk, $500,000, 3 years.",RECOMMENDATION,template
+Q0010,"Client wants high risk, is 57 years old, has 3-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0011,"Recommend a portfolio for: age=58, risk=high, investment=$100,000, horizon=5 years.",RECOMMENDATION,template
+Q0012,What percentage of years did Capital Preservation outperform the S&P 500?,DATA_QUERY,template
+Q0013,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0014,"My client has $100,000 to invest. They are 29 years old with very low risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0015,Chart the returns of all five portfolios since 2019.,DATA_QUERY,template
+Q0016,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0017,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0018,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0019,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0020,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0021,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0022,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0023,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0024,"Suggest an investment strategy for a 55-year-old, high risk, $200,000, 7 years.",RECOMMENDATION,template
+Q0025,"My client has $100,000 to invest. They are 43 years old with low risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0026,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0027,How did AGG perform last year?,DATA_QUERY,template
+Q0028,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0029,"Suggest an investment strategy for a 33-year-old, moderate risk, $50,000, 20 years.",RECOMMENDATION,template
+Q0030,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0031,How does the ESG-Tilt Balanced portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0032,How has ESGV performed since 2015?,DATA_QUERY,template
+Q0033,What is the difference between Capital Preservation and Capital Preservation?,QUALITATIVE,template
+Q0034,"Client profile: age 64, very low risk, 20 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0035,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0036,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0037,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0038,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0039,What percentage of years did Conservative Income outperform the S&P 500?,DATA_QUERY,template
+Q0040,What was the best performing portfolio in 2023?,DATA_QUERY,template
+Q0041,"What portfolio fits a 43-year-old with low risk tolerance and $200,000 to invest over 20 years?",RECOMMENDATION,template
+Q0042,What is the ideal portfolio for someone aged 46 with a very low risk profile and 5-year investment horizon?,RECOMMENDATION,template
+Q0043,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0044,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0045,Show me the 5-year performance of Aggressive Growth vs S&P 500.,DATA_QUERY,template
+Q0046,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0047,"Suggest an investment strategy for a 48-year-old, very high risk, $200,000, 20 years.",RECOMMENDATION,template
+Q0048,"Client profile: near retirement, 43 years old, high risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0049,"Client profile: age 49, low risk, 3 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0050,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0051,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0052,"My client has $50,000 to invest. They are 31 years old with very high risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0053,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0054,What is the average annual return of the Capital Preservation portfolio?,DATA_QUERY,template
+Q0055,Are those returns before or after fees?,CLARIFICATION,template
+Q0056,My 42-year-old client has high risk tolerance and a 3-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0057,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0058,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0059,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0060,Show me monthly returns for GLD in 2016.,DATA_QUERY,template
+Q0061,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0062,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0063,What would you recommend for a 54-year-old conservative investor with 15 years to retirement?,RECOMMENDATION,template
+Q0064,"How much would $100,000 invested in Conservative Income in 2016 be worth today?",DATA_QUERY,template
+Q0065,"My client has $200,000 to invest. They are 47 years old with moderate risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0066,My 25-year-old client has very high risk tolerance and a 3-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0067,What was the worst year for the Aggressive Growth portfolio?,DATA_QUERY,template
+Q0068,What is the Sharpe ratio of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0069,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0070,"Recommend a portfolio for: age=33, risk=moderate, investment=$25,000, horizon=5 years.",RECOMMENDATION,template
+Q0071,Show me the annual returns for GLD from 2015 to 2017.,DATA_QUERY,template
+Q0072,What was the annual return of the Conservative Income portfolio in 2024?,DATA_QUERY,template
+Q0073,Show me the 5-year performance of Conservative Income vs S&P 500.,DATA_QUERY,template
+Q0074,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0075,"I have a client aged 25, moderate income, high risk appetite, 15-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0076,What percentage of years did Aggressive Growth outperform the S&P 500?,DATA_QUERY,template
+Q0077,"For an ESG-conscious client aged 51 with very high risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0078,"Client is 32, has low risk, prefers ESG investments, horizon is 20 years. Recommend?",RECOMMENDATION,template
+Q0079,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0080,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0081,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0082,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0083,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0084,Are those returns before or after fees?,CLARIFICATION,template
+Q0085,How did VNQ perform last year?,DATA_QUERY,template
+Q0086,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0087,"My client is 65 years old, moderate risk tolerance, wants to invest $500,000 with a 15-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0088,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0089,Are those returns before or after fees?,CLARIFICATION,template
+Q0090,Show me the annual returns for SPY from 2024 to 2021.,DATA_QUERY,template
+Q0091,Show me monthly returns for ESGV in 2023.,DATA_QUERY,template
+Q0092,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0093,"How much would $100,000 invested in Balanced Growth in 2020 be worth today?",DATA_QUERY,template
+Q0094,"Recommend a portfolio for: age=49, risk=very low, investment=$100,000, horizon=7 years.",RECOMMENDATION,template
+Q0095,What would you recommend for a 44-year-old conservative investor with 15 years to retirement?,RECOMMENDATION,template
+Q0096,My 55-year-old client has very low risk tolerance and a 10-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0097,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0098,Show the correlation between SPY and GLD over 5 years.,DATA_QUERY,template
+Q0099,"My client has $100,000 to invest. They are 67 years old with low risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0100,"Client profile: age 25, very high risk, 10 years to retirement, $100,000 available. Best portfolio?",RECOMMENDATION,template
+Q0101,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0102,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0103,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0104,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0105,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0106,Show me the 5-year performance of Balanced Growth vs S&P 500.,DATA_QUERY,template
+Q0107,"My client is 55 years old, moderate risk tolerance, wants to invest $100,000 with a 3-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0108,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0109,What percentage of years did Capital Preservation outperform the S&P 500?,DATA_QUERY,template
+Q0110,What currency are those return figures in?,CLARIFICATION,template
+Q0111,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0112,What was the worst year for the Balanced Growth portfolio?,DATA_QUERY,template
+Q0113,What was the worst year for the Balanced Growth portfolio?,DATA_QUERY,template
+Q0114,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0115,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0116,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0117,Are those returns before or after fees?,CLARIFICATION,template
+Q0118,"For a 49-year-old client with very low risk and 7 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0119,What is the ideal portfolio for someone aged 44 with a very high risk profile and 10-year investment horizon?,RECOMMENDATION,template
+Q0120,How does the ESG-Tilt Balanced portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0121,Show me the 5-year performance of Aggressive Growth vs S&P 500.,DATA_QUERY,template
+Q0122,Show me the annual returns for AGG from 2016 to 2021.,DATA_QUERY,template
+Q0123,"I have a client aged 58, moderate income, moderate risk appetite, 20-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0124,Chart the returns of all five portfolios since 2016.,DATA_QUERY,template
+Q0125,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0126,"What portfolio fits a 62-year-old with high risk tolerance and $100,000 to invest over 3 years?",RECOMMENDATION,template
+Q0127,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0128,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0129,"My client is 63 years old, very low risk tolerance, wants to invest $50,000 with a 10-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0130,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0131,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0132,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0133,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0134,Chart the returns of all five portfolios since 2020.,DATA_QUERY,template
+Q0135,"How much would $100,000 invested in Balanced Growth in 2020 be worth today?",DATA_QUERY,template
+Q0136,"Client wants very low risk, is 46 years old, has 20-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0137,Show the correlation between SPY and AGG over 5 years.,DATA_QUERY,template
+Q0138,How has SPY performed since 2018?,DATA_QUERY,template
+Q0139,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0140,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0141,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0142,"I have a client aged 45, moderate income, very low risk appetite, 15-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0143,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0144,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0145,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0146,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0147,What was the annual return of the Conservative Income portfolio in 2017?,DATA_QUERY,template
+Q0148,"Client profile: age 48, very low risk, 3 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0149,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0150,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0151,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0152,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0153,Show me the 5-year performance of Balanced Growth vs S&P 500.,DATA_QUERY,template
+Q0154,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0155,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0156,"I have a client aged 54, moderate income, low risk appetite, 15-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0157,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0158,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0159,What currency are those return figures in?,CLARIFICATION,template
+Q0160,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0161,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0162,What are the main risks of the Conservative Income portfolio?,QUALITATIVE,template
+Q0163,What currency are those return figures in?,CLARIFICATION,template
+Q0164,Are those returns before or after fees?,CLARIFICATION,template
+Q0165,"For an ESG-conscious client aged 63 with moderate risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0166,What percentage of years did Conservative Income outperform the S&P 500?,DATA_QUERY,template
+Q0167,"Client wants very high risk, is 50 years old, has 20-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0168,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0169,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0170,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0171,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0172,"Client wants moderate risk, is 35 years old, has 5-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0173,Show me monthly returns for VNQ in 2019.,DATA_QUERY,template
+Q0174,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0175,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0176,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0177,"For an ESG-conscious client aged 53 with high risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0178,"What portfolio fits a 56-year-old with low risk tolerance and $100,000 to invest over 10 years?",RECOMMENDATION,template
+Q0179,"I have a client aged 64, moderate income, low risk appetite, 20-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0180,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0181,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0182,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0183,What is the Sharpe ratio of the ESG-Tilt Balanced portfolio?,DATA_QUERY,template
+Q0184,"Recommend a portfolio for: age=66, risk=high, investment=$50,000, horizon=10 years.",RECOMMENDATION,template
+Q0185,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0186,What is the Sharpe ratio of the Aggressive Growth portfolio?,DATA_QUERY,template
+Q0187,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0188,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0189,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0190,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0191,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0192,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0193,"I have a client aged 60, moderate income, low risk appetite, 15-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0194,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0195,"Client is 49, has very low risk, prefers ESG investments, horizon is 7 years. Recommend?",RECOMMENDATION,template
+Q0196,What is the difference between Balanced Growth and Aggressive Growth?,QUALITATIVE,template
+Q0197,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0198,"Client profile: near retirement, 29 years old, moderate risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0199,What are the main risks of the Aggressive Growth portfolio?,QUALITATIVE,template
+Q0200,"Client profile: age 30, very high risk, 3 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0201,What is the 10-year CAGR of the Conservative Income portfolio?,DATA_QUERY,template
+Q0202,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0203,"For an ESG-conscious client aged 67 with high risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0204,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0205,What was the best performing portfolio in 2018?,DATA_QUERY,template
+Q0206,"Client is 53, has moderate risk, prefers ESG investments, horizon is 20 years. Recommend?",RECOMMENDATION,template
+Q0207,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0208,What would you recommend for a 35-year-old conservative investor with 10 years to retirement?,RECOMMENDATION,template
+Q0209,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0210,Compare the returns of Conservative Income and Balanced Growth over the last 3 years.,DATA_QUERY,template
+Q0211,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0212,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0213,"Client is 52, has low risk, prefers ESG investments, horizon is 20 years. Recommend?",RECOMMENDATION,template
+Q0214,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0215,"Suggest an investment strategy for a 67-year-old, high risk, $100,000, 10 years.",RECOMMENDATION,template
+Q0216,"What portfolio fits a 40-year-old with very high risk tolerance and $25,000 to invest over 3 years?",RECOMMENDATION,template
+Q0217,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0218,How did SPY perform last year?,DATA_QUERY,template
+Q0219,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0220,What is the difference between Capital Preservation and ESG-Tilt Balanced?,QUALITATIVE,template
+Q0221,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0222,What was the worst year for the Aggressive Growth portfolio?,DATA_QUERY,template
+Q0223,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0224,"For an ESG-conscious client aged 70 with moderate risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0225,Show me the annual returns for ESGV from 2022 to 2022.,DATA_QUERY,template
+Q0226,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0227,"Client is 60, has low risk, prefers ESG investments, horizon is 5 years. Recommend?",RECOMMENDATION,template
+Q0228,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0229,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0230,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0231,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0232,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0233,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0234,"Client profile: age 55, very low risk, 7 years to retirement, $100,000 available. Best portfolio?",RECOMMENDATION,template
+Q0235,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0236,What currency are those return figures in?,CLARIFICATION,template
+Q0237,What is the average annual return of the Aggressive Growth portfolio?,DATA_QUERY,template
+Q0238,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0239,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0240,"Client profile: near retirement, 39 years old, high risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0241,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0242,How did VNQ perform last year?,DATA_QUERY,template
+Q0243,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0244,How has VNQ performed since 2021?,DATA_QUERY,template
+Q0245,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0246,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0247,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0248,What currency are those return figures in?,CLARIFICATION,template
+Q0249,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0250,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0251,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0252,How did GLD perform last year?,DATA_QUERY,template
+Q0253,What are the main risks of the ESG-Tilt Balanced portfolio?,QUALITATIVE,template
+Q0254,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0255,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0256,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0257,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0258,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0259,"Client profile: near retirement, 62 years old, high risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0260,Show me the 5-year performance of Capital Preservation vs S&P 500.,DATA_QUERY,template
+Q0261,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0262,Show the correlation between VNQ and AGG over 5 years.,DATA_QUERY,template
+Q0263,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0264,My 27-year-old client has moderate risk tolerance and a 3-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0265,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0266,"Suggest an investment strategy for a 54-year-old, moderate risk, $200,000, 7 years.",RECOMMENDATION,template
+Q0267,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0268,"What portfolio fits a 67-year-old with moderate risk tolerance and $50,000 to invest over 7 years?",RECOMMENDATION,template
+Q0269,"My client is 41 years old, low risk tolerance, wants to invest $500,000 with a 7-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0270,What percentage of years did ESG-Tilt Balanced outperform the S&P 500?,DATA_QUERY,template
+Q0271,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0272,"Client profile: near retirement, 64 years old, high risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0273,"Client profile: age 52, very high risk, 3 years to retirement, $500,000 available. Best portfolio?",RECOMMENDATION,template
+Q0274,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0275,Chart the returns of all five portfolios since 2024.,DATA_QUERY,template
+Q0276,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0277,"For an ESG-conscious client aged 30 with low risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0278,How has SPY performed since 2016?,DATA_QUERY,template
+Q0279,What was the annual return of the ESG-Tilt Balanced portfolio in 2015?,DATA_QUERY,template
+Q0280,How does the Balanced Growth portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0281,"Recommend a portfolio for: age=59, risk=very low, investment=$500,000, horizon=3 years.",RECOMMENDATION,template
+Q0282,"My client has $50,000 to invest. They are 53 years old with high risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0283,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0284,How did SPY perform last year?,DATA_QUERY,template
+Q0285,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0286,How does the Conservative Income portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0287,My 68-year-old client has very high risk tolerance and a 15-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0288,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0289,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0290,What is the Sharpe ratio of the ESG-Tilt Balanced portfolio?,DATA_QUERY,template
+Q0291,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0292,What are the main risks of the Balanced Growth portfolio?,QUALITATIVE,template
+Q0293,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0294,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0295,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0296,"Client profile: age 61, moderate risk, 3 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0297,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0298,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0299,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0300,Show me the annual returns for AGG from 2024 to 2020.,DATA_QUERY,template
+Q0301,"Client profile: near retirement, 53 years old, very high risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0302,"How much would $100,000 invested in ESG-Tilt Balanced in 2018 be worth today?",DATA_QUERY,template
+Q0303,Show me monthly returns for SPY in 2023.,DATA_QUERY,template
+Q0304,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0305,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0306,Show the correlation between GLD and ESGV over 5 years.,DATA_QUERY,template
+Q0307,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0308,How has VNQ performed since 2015?,DATA_QUERY,template
+Q0309,Compare the returns of Conservative Income and Balanced Growth over the last 3 years.,DATA_QUERY,template
+Q0310,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0311,How did the ESG-Tilt portfolio perform during the 2022 market downturn?,DATA_QUERY,template
+Q0312,"Recommend a portfolio for: age=41, risk=low, investment=$25,000, horizon=20 years.",RECOMMENDATION,template
+Q0313,What is the ideal portfolio for someone aged 50 with a low risk profile and 20-year investment horizon?,RECOMMENDATION,template
+Q0314,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0315,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0316,Show me monthly returns for AGG in 2022.,DATA_QUERY,template
+Q0317,"My client is 37 years old, low risk tolerance, wants to invest $500,000 with a 10-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0318,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0319,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0320,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0321,How does the Balanced Growth portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0322,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0323,Can you explain the investment strategy behind Aggressive Growth?,QUALITATIVE,template
+Q0324,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0325,"What portfolio fits a 26-year-old with very high risk tolerance and $50,000 to invest over 20 years?",RECOMMENDATION,template
+Q0326,"My client has $500,000 to invest. They are 67 years old with high risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0327,Show me the annual returns for SPY from 2021 to 2023.,DATA_QUERY,template
+Q0328,Compare the returns of Balanced Growth and Aggressive Growth over the last 3 years.,DATA_QUERY,template
+Q0329,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0330,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0331,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0332,"Client is 51, has low risk, prefers ESG investments, horizon is 5 years. Recommend?",RECOMMENDATION,template
+Q0333,"Client profile: near retirement, 36 years old, low risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0334,Compare Capital Preservation vs Balanced Growth over the past 10 years.,DATA_QUERY,template
+Q0335,What was the worst year for the Conservative Income portfolio?,DATA_QUERY,template
+Q0336,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0337,What is the Sharpe ratio of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0338,"For a 60-year-old client with very low risk and 7 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0339,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0340,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0341,Chart the returns of all five portfolios since 2022.,DATA_QUERY,template
+Q0342,What was the best performing portfolio in 2018?,DATA_QUERY,template
+Q0343,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0344,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0345,Chart the returns of all five portfolios since 2020.,DATA_QUERY,template
+Q0346,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0347,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0348,Compare the returns of Balanced Growth and Capital Preservation over the last 3 years.,DATA_QUERY,template
+Q0349,What was the best performing portfolio in 2018?,DATA_QUERY,template
+Q0350,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0351,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0352,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0353,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0354,"My client is 65 years old, very low risk tolerance, wants to invest $25,000 with a 20-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0355,What are the main risks of the Conservative Income portfolio?,QUALITATIVE,template
+Q0356,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0357,"My client has $100,000 to invest. They are 59 years old with very low risk tolerance. Suggest a portfolio.",RECOMMENDATION,template
+Q0358,Could you explain the confidence score in the recommendation?,CLARIFICATION,template
+Q0359,What benchmark was used for the comparison?,CLARIFICATION,template
+Q0360,"What portfolio fits a 25-year-old with very high risk tolerance and $500,000 to invest over 20 years?",RECOMMENDATION,template
+Q0361,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0362,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0363,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0364,"Recommend a portfolio for: age=50, risk=moderate, investment=$200,000, horizon=15 years.",RECOMMENDATION,template
+Q0365,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0366,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0367,"How much would $100,000 invested in ESG-Tilt Balanced in 2023 be worth today?",DATA_QUERY,template
+Q0368,"My client is 59 years old, low risk tolerance, wants to invest $50,000 with a 7-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0369,"Recommend a portfolio for: age=33, risk=low, investment=$200,000, horizon=20 years.",RECOMMENDATION,template
+Q0370,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0371,Are those returns before or after fees?,CLARIFICATION,template
+Q0372,Give me the year-by-year returns for the Balanced Growth portfolio.,DATA_QUERY,template
+Q0373,What is the difference between Balanced Growth and Capital Preservation?,QUALITATIVE,template
+Q0374,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0375,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0376,What would you recommend for a 46-year-old conservative investor with 3 years to retirement?,RECOMMENDATION,template
+Q0377,"Suggest an investment strategy for a 35-year-old, high risk, $200,000, 7 years.",RECOMMENDATION,template
+Q0378,My 54-year-old client has very low risk tolerance and a 5-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0379,"Client wants low risk, is 64 years old, has 5-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0380,What is the Sharpe ratio of the Capital Preservation portfolio?,DATA_QUERY,template
+Q0381,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0382,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0383,"For a 64-year-old client with very high risk and 20 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0384,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0385,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0386,What is the average annual return of the Conservative Income portfolio?,DATA_QUERY,template
+Q0387,What was the best performing portfolio in 2020?,DATA_QUERY,template
+Q0388,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0389,What is the difference between Capital Preservation and Balanced Growth?,QUALITATIVE,template
+Q0390,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0391,What was the best performing portfolio in 2024?,DATA_QUERY,template
+Q0392,What is the role of REITs in the Balanced Growth portfolio?,QUALITATIVE,template
+Q0393,How does the portfolio rebalance over time?,QUALITATIVE,template
+Q0394,What macroeconomic conditions favour the Capital Preservation portfolio?,QUALITATIVE,template
+Q0395,"I have a client aged 30, moderate income, low risk appetite, 15-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0396,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0397,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0398,What would you recommend for a 62-year-old conservative investor with 5 years to retirement?,RECOMMENDATION,template
+Q0399,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0400,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0401,"Client wants very low risk, is 36 years old, has 10-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0402,"Client is 31, has low risk, prefers ESG investments, horizon is 7 years. Recommend?",RECOMMENDATION,template
+Q0403,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0404,Show me monthly returns for SPY in 2020.,DATA_QUERY,template
+Q0405,What is the difference between Aggressive Growth and Conservative Income?,QUALITATIVE,template
+Q0406,Compare the returns of Capital Preservation and Balanced Growth over the last 3 years.,DATA_QUERY,template
+Q0407,"For a 65-year-old client with very low risk and 5 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0408,What would you recommend for a 54-year-old conservative investor with 5 years to retirement?,RECOMMENDATION,template
+Q0409,What was the annual return of the Balanced Growth portfolio in 2024?,DATA_QUERY,template
+Q0410,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0411,What does ESG investing mean for the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0412,Is the 10-year CAGR the same as the average annual return?,CLARIFICATION,template
+Q0413,What is the ideal portfolio for someone aged 45 with a high risk profile and 3-year investment horizon?,RECOMMENDATION,template
+Q0414,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0415,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0416,Why would someone choose Conservative Income over Balanced Growth?,QUALITATIVE,template
+Q0417,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0418,Can you clarify what ESG preference means for the recommendation?,CLARIFICATION,template
+Q0419,"What portfolio fits a 56-year-old with high risk tolerance and $25,000 to invest over 15 years?",RECOMMENDATION,template
+Q0420,What is the average annual return of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0421,My 40-year-old client has very low risk tolerance and a 10-year horizon. What portfolio do you suggest?,RECOMMENDATION,template
+Q0422,What would you recommend for a 37-year-old conservative investor with 3 years to retirement?,RECOMMENDATION,template
+Q0423,"My client is 41 years old, moderate risk tolerance, wants to invest $100,000 with a 15-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0424,Are those returns before or after fees?,CLARIFICATION,template
+Q0425,"For a 26-year-old client with very high risk and 5 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0426,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0427,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0428,"Suggest an investment strategy for a 48-year-old, low risk, $500,000, 15 years.",RECOMMENDATION,template
+Q0429,I didn't understand the output — can you explain it again?,CLARIFICATION,template
+Q0430,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0431,What types of bonds are in the Conservative Income portfolio?,QUALITATIVE,template
+Q0432,"For a 54-year-old client with moderate risk and 10 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0433,"Client wants very high risk, is 33 years old, has 10-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0434,"Recommend a portfolio for: age=27, risk=moderate, investment=$200,000, horizon=3 years.",RECOMMENDATION,template
+Q0435,"For an ESG-conscious client aged 52 with very high risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0436,What was the worst year for the Capital Preservation portfolio?,DATA_QUERY,template
+Q0437,Is the annual return you showed inflation-adjusted?,CLARIFICATION,template
+Q0438,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0439,"Client wants very high risk, is 28 years old, has 20-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0440,Explain the difference between CAGR and average annual return.,QUALITATIVE,template
+Q0441,"What portfolio fits a 31-year-old with very high risk tolerance and $200,000 to invest over 3 years?",RECOMMENDATION,template
+Q0442,What currency are those return figures in?,CLARIFICATION,template
+Q0443,What was the annual return of the Capital Preservation portfolio in 2016?,DATA_QUERY,template
+Q0444,What happens to the Aggressive Growth portfolio during a recession?,QUALITATIVE,template
+Q0445,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0446,What would you recommend for a 29-year-old conservative investor with 7 years to retirement?,RECOMMENDATION,template
+Q0447,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0448,Compare the returns of ESG-Tilt Balanced and Aggressive Growth over the last 3 years.,DATA_QUERY,template
+Q0449,Are those returns before or after fees?,CLARIFICATION,template
+Q0450,What is the average annual return of the Aggressive Growth portfolio?,DATA_QUERY,template
+Q0451,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0452,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
+Q0453,"My client is 54 years old, high risk tolerance, wants to invest $25,000 with a 5-year horizon. What do you recommend?",RECOMMENDATION,template
+Q0454,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0455,What is a Sharpe ratio and why does it matter?,QUALITATIVE,template
+Q0456,How does ESG screening affect portfolio performance?,QUALITATIVE,template
+Q0457,What was the annual return of the Conservative Income portfolio in 2020?,DATA_QUERY,template
+Q0458,"For a 38-year-old client with high risk and 20 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0459,"For a 51-year-old client with moderate risk and 20 years until retirement, what is the best allocation?",RECOMMENDATION,template
+Q0460,"Client profile: age 40, high risk, 15 years to retirement, $200,000 available. Best portfolio?",RECOMMENDATION,template
+Q0461,"I have a client aged 46, moderate income, very high risk appetite, 20-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0462,"How much would $100,000 invested in Balanced Growth in 2015 be worth today?",DATA_QUERY,template
+Q0463,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0464,What does risk tolerance mean in the context of portfolio selection?,QUALITATIVE,template
+Q0465,Can you show the same data as a table instead of a chart?,CLARIFICATION,template
+Q0466,"Client is 63, has moderate risk, prefers ESG investments, horizon is 20 years. Recommend?",RECOMMENDATION,template
+Q0467,What is the ideal portfolio for someone aged 50 with a high risk profile and 15-year investment horizon?,RECOMMENDATION,template
+Q0468,What was the annual return of the Conservative Income portfolio in 2023?,DATA_QUERY,template
+Q0469,"For an ESG-conscious client aged 57 with moderate risk tolerance, what portfolio works best?",RECOMMENDATION,template
+Q0470,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0471,What are the main risks of the Capital Preservation portfolio?,QUALITATIVE,template
+Q0472,"I have a client aged 25, moderate income, low risk appetite, 7-year horizon. Which portfolio suits them?",RECOMMENDATION,template
+Q0473,What is the typical asset allocation for a moderate-risk investor?,QUALITATIVE,template
+Q0474,What is the difference between investment horizon and time to retirement?,CLARIFICATION,template
+Q0475,Show me the 5-year performance of ESG-Tilt Balanced vs S&P 500.,DATA_QUERY,template
+Q0476,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0477,Compare the returns of Aggressive Growth and Aggressive Growth over the last 3 years.,DATA_QUERY,template
+Q0478,Show the correlation between AGG and SPY over 5 years.,DATA_QUERY,template
+Q0479,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0480,Can you repeat that recommendation with the ESG filter turned off?,CLARIFICATION,template
+Q0481,What was the maximum drawdown for Aggressive Growth in the last decade?,DATA_QUERY,template
+Q0482,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0483,What currency are those return figures in?,CLARIFICATION,template
+Q0484,What is the ideal portfolio for someone aged 53 with a moderate risk profile and 7-year investment horizon?,RECOMMENDATION,template
+Q0485,Is the client age used to determine the portfolio or just the risk tolerance?,CLARIFICATION,template
+Q0486,What do you mean by a 10-year horizon — is that until retirement?,CLARIFICATION,template
+Q0487,How did AGG perform last year?,DATA_QUERY,template
+Q0488,How often are these portfolios rebalanced?,QUALITATIVE,template
+Q0489,What is the ideal portfolio for someone aged 29 with a low risk profile and 3-year investment horizon?,RECOMMENDATION,template
+Q0490,What currency are those return figures in?,CLARIFICATION,template
+Q0491,What does 'blended return' mean in this context?,CLARIFICATION,template
+Q0492,"When you say moderate risk, what does that mean exactly?",CLARIFICATION,template
+Q0493,How does the Capital Preservation portfolio respond to rising interest rates?,QUALITATIVE,template
+Q0494,What is the 10-year CAGR of the Balanced Growth portfolio?,DATA_QUERY,template
+Q0495,How has ESGV performed since 2016?,DATA_QUERY,template
+Q0496,Why does the Capital Preservation portfolio include gold?,QUALITATIVE,template
+Q0497,What is the average annual return of the Capital Preservation portfolio?,DATA_QUERY,template
+Q0498,"Client profile: near retirement, 70 years old, moderate risk, needs income. Best portfolio?",RECOMMENDATION,template
+Q0499,How is the Balanced Growth portfolio constructed?,QUALITATIVE,template
+Q0500,What is the investment philosophy behind the ESG-Tilt portfolio?,QUALITATIVE,template
