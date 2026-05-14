@@ -1,0 +1,199 @@
+id,question,sql,table,source
+SQL001,Compare Capital Preservation and Conservative Income returns in 2015.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Capital Preservation', 'Conservative Income') AND year = 2015 ORDER BY annual_return DESC;",mixed,template
+SQL002,What was the annual return of VNQ in 2016?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2016;,mixed,template
+SQL003,What was the annual return of VNQ in 2019?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2019;,mixed,template
+SQL004,What was the annual return of GLD in 2016?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2016;,mixed,template
+SQL005,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL006,What was the annual return of GLD in 2017?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2017;,mixed,template
+SQL007,Compare Balanced Growth and ESG-Tilt Balanced returns in 2021.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Balanced Growth', 'ESG-Tilt Balanced') AND year = 2021 ORDER BY annual_return DESC;",mixed,template
+SQL008,What was the annual return of VNQ in 2016?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2016;,mixed,template
+SQL009,What was the highest annual return ever recorded for AGG?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL010,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL011,What was the highest annual return ever recorded for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL012,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL013,Which year had the highest return for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",annual_returns,manual
+SQL014,What was the annual return of Balanced Growth in 2021?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2021;,annual_returns,manual
+SQL015,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL016,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL017,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL018,Compare Aggressive Growth and Capital Preservation returns in 2020.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Capital Preservation') AND year = 2020 ORDER BY annual_return DESC;",mixed,template
+SQL019,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL020,What is the cumulative return of SPY over the last 10 years?,"SELECT ROUND(EXP(SUM(LOG(1 + annual_return))) - 1, 4) as cumulative_return FROM annual_returns WHERE ticker = 'SPY';",annual_returns,manual
+SQL021,What was the annual return of ESGV in 2019?,SELECT annual_return FROM annual_returns WHERE ticker = 'ESGV' AND year = 2019;,mixed,template
+SQL022,Show me all years where ESG-Tilt Balanced had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL023,List all ETFs and their average annual return.,"SELECT ticker, description, ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns GROUP BY ticker, description ORDER BY avg_return DESC;",annual_returns,manual
+SQL024,How did ESG-Tilt Balanced perform in 2023?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2023;,mixed,template
+SQL025,What was the annual return of SPY in 2024?,SELECT annual_return FROM annual_returns WHERE ticker = 'SPY' AND year = 2024;,mixed,template
+SQL026,Show me the closing prices of GLD for the last 30 trading days.,"SELECT date, close FROM daily_prices WHERE ticker = 'GLD' ORDER BY date DESC LIMIT 30;",daily_prices,manual
+SQL027,Show me years where ESGV outperformed SPY.,"SELECT e.year, e.annual_return as esgv_return, s.annual_return as spy_return FROM annual_returns e JOIN annual_returns s ON e.year = s.year WHERE e.ticker = 'ESGV' AND s.ticker = 'SPY' AND e.annual_return > s.annual_return ORDER BY e.year;",annual_returns,manual
+SQL028,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL029,Compare Conservative Income and ESG-Tilt Balanced returns in 2017.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'ESG-Tilt Balanced') AND year = 2017 ORDER BY annual_return DESC;",mixed,template
+SQL030,Compare Balanced Growth and ESG-Tilt Balanced returns in 2023.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Balanced Growth', 'ESG-Tilt Balanced') AND year = 2023 ORDER BY annual_return DESC;",mixed,template
+SQL031,What was the highest annual return ever recorded for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL032,What is the average annual return of AGG over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'AGG';",mixed,template
+SQL033,Compare Conservative Income and ESG-Tilt Balanced returns in 2017.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'ESG-Tilt Balanced') AND year = 2017 ORDER BY annual_return DESC;",mixed,template
+SQL034,What was the highest annual return ever recorded for AGG?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL035,Show Conservative Income returns from 2019 to 2020.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year BETWEEN 2019 AND 2020 ORDER BY year;",mixed,template
+SQL036,How did Capital Preservation perform during years when SPY was negative?,"SELECT p.year, p.annual_return as cp_return, a.annual_return as spy_return FROM portfolio_annual_returns p JOIN annual_returns a ON p.year = a.year WHERE p.portfolio = 'Capital Preservation' AND a.ticker = 'SPY' AND a.annual_return < 0 ORDER BY p.year;",annual_returns,manual
+SQL037,Show me the annual returns for AGG from 2018 to 2023.,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' AND year BETWEEN 2018 AND 2023 ORDER BY year;",annual_returns,manual
+SQL038,Show Capital Preservation returns from 2023 to 2023.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2023 AND 2023 ORDER BY year;",mixed,template
+SQL039,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL040,Show me all years where Balanced Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL041,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL042,Show Balanced Growth returns from 2019 to 2023.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2019 AND 2023 ORDER BY year;",mixed,template
+SQL043,How did Balanced Growth perform in 2016?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2016;,mixed,template
+SQL044,What was the annual return of VNQ in 2017?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2017;,mixed,template
+SQL045,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL046,What was the worst year for VNQ?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'VNQ' ORDER BY annual_return ASC LIMIT 1;",annual_returns,manual
+SQL047,How did ESG-Tilt Balanced perform in 2018?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2018;,mixed,template
+SQL048,Compare Capital Preservation and Balanced Growth returns in 2023.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Capital Preservation', 'Balanced Growth') AND year = 2023 ORDER BY annual_return DESC;",mixed,template
+SQL049,Show me all years where Balanced Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL050,Compare Conservative Income and Capital Preservation returns in 2024.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'Capital Preservation') AND year = 2024 ORDER BY annual_return DESC;",mixed,template
+SQL051,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL052,Show Balanced Growth returns from 2022 to 2024.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2022 AND 2024 ORDER BY year;",mixed,template
+SQL053,How did Conservative Income perform in 2022?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year = 2022;,mixed,template
+SQL054,How did GLD perform in 2020?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2020;,annual_returns,manual
+SQL055,How did ESG-Tilt Balanced perform in 2019?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2019;,mixed,template
+SQL056,Show Conservative Income returns from 2017 to 2021.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year BETWEEN 2017 AND 2021 ORDER BY year;",mixed,template
+SQL057,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL058,What was the highest annual return ever recorded for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL059,How did Capital Preservation perform in 2021?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year = 2021;,mixed,template
+SQL060,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL061,What is the average annual return of VNQ over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'VNQ';",mixed,template
+SQL062,What is the average annual return of AGG over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'AGG';",mixed,template
+SQL063,What was the highest annual return ever recorded for ESGV?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'ESGV' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL064,What was the annual return of VNQ in 2017?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2017;,mixed,template
+SQL065,How did Balanced Growth perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2020;,mixed,template
+SQL066,What percentage of years did Aggressive Growth outperform Balanced Growth?,"SELECT ROUND(100.0 * COUNT(*) / (SELECT COUNT(DISTINCT year) FROM portfolio_annual_returns), 1) as pct FROM portfolio_annual_returns ag JOIN portfolio_annual_returns bg ON ag.year = bg.year WHERE ag.portfolio = 'Aggressive Growth' AND bg.portfolio = 'Balanced Growth' AND ag.annual_return > bg.annual_return;",annual_returns,manual
+SQL067,How did Aggressive Growth perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2020;,mixed,template
+SQL068,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL069,What was the annual return of SPY in 2022?,SELECT annual_return FROM annual_returns WHERE ticker = 'SPY' AND year = 2022;,mixed,template
+SQL070,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL071,Show ESG-Tilt Balanced returns from 2020 to 2022.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year BETWEEN 2020 AND 2022 ORDER BY year;",mixed,template
+SQL072,How many years did Balanced Growth beat Capital Preservation?,SELECT COUNT(*) as years FROM portfolio_annual_returns bg JOIN portfolio_annual_returns cp ON bg.year = cp.year WHERE bg.portfolio = 'Balanced Growth' AND cp.portfolio = 'Capital Preservation' AND bg.annual_return > cp.annual_return;,annual_returns,manual
+SQL073,Compare Aggressive Growth and Balanced Growth returns in 2022.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Balanced Growth') AND year = 2022 ORDER BY annual_return DESC;",mixed,template
+SQL074,What was the annual return of SPY in 2022?,SELECT annual_return FROM annual_returns WHERE ticker = 'SPY' AND year = 2022;,annual_returns,manual
+SQL075,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL076,What was the best performing portfolio in 2023?,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE year = 2023 ORDER BY annual_return DESC LIMIT 1;",annual_returns,manual
+SQL077,Compare ESG-Tilt Balanced and Conservative Income returns in 2024.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('ESG-Tilt Balanced', 'Conservative Income') AND year = 2024 ORDER BY annual_return DESC;",mixed,template
+SQL078,Compare returns of all portfolios in 2022.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE year = 2022 ORDER BY annual_return DESC;",annual_returns,manual
+SQL079,Compare Aggressive Growth and Capital Preservation returns in 2022.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Capital Preservation') AND year = 2022 ORDER BY annual_return DESC;",mixed,template
+SQL080,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL081,What was the highest annual return ever recorded for ESGV?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'ESGV' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL082,What was the annual return of GLD in 2015?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2015;,mixed,template
+SQL083,Compare Balanced Growth and Capital Preservation returns in 2017.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Balanced Growth', 'Capital Preservation') AND year = 2017 ORDER BY annual_return DESC;",mixed,template
+SQL084,Show Balanced Growth returns from 2017 to 2018.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2017 AND 2018 ORDER BY year;",mixed,template
+SQL085,Show Conservative Income returns from 2015 to 2019.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year BETWEEN 2015 AND 2019 ORDER BY year;",mixed,template
+SQL086,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL087,What was the annual return of GLD in 2019?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2019;,mixed,template
+SQL088,What was the annual return of SPY in 2019?,SELECT annual_return FROM annual_returns WHERE ticker = 'SPY' AND year = 2019;,mixed,template
+SQL089,Compare ESG-Tilt Balanced and Capital Preservation returns in 2022.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('ESG-Tilt Balanced', 'Capital Preservation') AND year = 2022 ORDER BY annual_return DESC;",mixed,template
+SQL090,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL091,Show Aggressive Growth returns from 2016 to 2024.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year BETWEEN 2016 AND 2024 ORDER BY year;",mixed,template
+SQL092,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL093,What was the annual return of ESGV in 2022?,SELECT annual_return FROM annual_returns WHERE ticker = 'ESGV' AND year = 2022;,mixed,template
+SQL094,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL095,Show me all years where Balanced Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL096,Show Capital Preservation returns from 2015 to 2016.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2015 AND 2016 ORDER BY year;",mixed,template
+SQL097,What was the worst year for Aggressive Growth?,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' ORDER BY annual_return ASC LIMIT 1;",annual_returns,manual
+SQL098,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL099,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL100,Show Capital Preservation returns from 2016 to 2019.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2016 AND 2019 ORDER BY year;",mixed,template
+SQL101,What was the highest annual return ever recorded for VNQ?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'VNQ' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL102,What was the average annual return of AGG over the last 5 years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'AGG' AND year >= (SELECT MAX(year) - 4 FROM annual_returns);",annual_returns,manual
+SQL103,Show Conservative Income returns from 2021 to 2021.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year BETWEEN 2021 AND 2021 ORDER BY year;",mixed,template
+SQL104,Show Balanced Growth returns from 2015 to 2017.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2015 AND 2017 ORDER BY year;",mixed,template
+SQL105,Show Aggressive Growth returns from 2020 to 2023.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year BETWEEN 2020 AND 2023 ORDER BY year;",mixed,template
+SQL106,Compare Balanced Growth and Aggressive Growth returns in 2015.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Balanced Growth', 'Aggressive Growth') AND year = 2015 ORDER BY annual_return DESC;",mixed,template
+SQL107,How did Balanced Growth perform in 2015?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2015;,mixed,template
+SQL108,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL109,Compare Conservative Income and ESG-Tilt Balanced returns in 2017.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'ESG-Tilt Balanced') AND year = 2017 ORDER BY annual_return DESC;",mixed,template
+SQL110,How did Aggressive Growth perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2020;,mixed,template
+SQL111,Compare Aggressive Growth and Conservative Income returns in 2020.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Conservative Income') AND year = 2020 ORDER BY annual_return DESC;",mixed,template
+SQL112,Show Conservative Income returns from 2024 to 2024.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year BETWEEN 2024 AND 2024 ORDER BY year;",mixed,template
+SQL113,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL114,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL115,Show me all years where Balanced Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL116,What was the highest annual return ever recorded for AGG?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL117,How did Balanced Growth perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2020;,mixed,template
+SQL118,Compare Conservative Income and Capital Preservation returns in 2021.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'Capital Preservation') AND year = 2021 ORDER BY annual_return DESC;",mixed,template
+SQL119,Compare Aggressive Growth and ESG-Tilt Balanced returns in 2017.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'ESG-Tilt Balanced') AND year = 2017 ORDER BY annual_return DESC;",mixed,template
+SQL120,How many years did SPY have a positive return?,SELECT COUNT(*) as positive_years FROM annual_returns WHERE ticker = 'SPY' AND annual_return > 0;,annual_returns,manual
+SQL121,What was the annual return of VNQ in 2021?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2021;,mixed,template
+SQL122,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL123,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL124,Show me all years where Balanced Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL125,What was the annual return of SPY in 2024?,SELECT annual_return FROM annual_returns WHERE ticker = 'SPY' AND year = 2024;,mixed,template
+SQL126,Show Balanced Growth returns from 2017 to 2020.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2017 AND 2020 ORDER BY year;",mixed,template
+SQL127,What was the annual return of ESGV in 2020?,SELECT annual_return FROM annual_returns WHERE ticker = 'ESGV' AND year = 2020;,mixed,template
+SQL128,How did Conservative Income perform in 2022?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year = 2022;,mixed,template
+SQL129,How did Aggressive Growth perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2020;,mixed,template
+SQL130,Compare Conservative Income and Capital Preservation returns in 2019.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Conservative Income', 'Capital Preservation') AND year = 2019 ORDER BY annual_return DESC;",mixed,template
+SQL131,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL132,Show average annual return for each portfolio.,"SELECT portfolio, avg_annual_return FROM v_portfolio_cagr ORDER BY avg_annual_return DESC;",portfolio_annual_returns,manual
+SQL133,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL134,Show Capital Preservation returns from 2018 to 2020.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2018 AND 2020 ORDER BY year;",mixed,template
+SQL135,How did Aggressive Growth perform in 2021?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2021;,mixed,template
+SQL136,Show me the best and worst annual return for each portfolio.,"SELECT portfolio, best_year, worst_year FROM v_portfolio_cagr ORDER BY cagr DESC;",portfolio_annual_returns,manual
+SQL137,Compare Aggressive Growth and Conservative Income returns in 2024.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Conservative Income') AND year = 2024 ORDER BY annual_return DESC;",mixed,template
+SQL138,What was the annual return of AGG in 2021?,SELECT annual_return FROM annual_returns WHERE ticker = 'AGG' AND year = 2021;,mixed,template
+SQL139,Compare ESG-Tilt Balanced and Aggressive Growth returns in 2018.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('ESG-Tilt Balanced', 'Aggressive Growth') AND year = 2018 ORDER BY annual_return DESC;",mixed,template
+SQL140,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL141,What was the annual return of GLD in 2023?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2023;,mixed,template
+SQL142,How did ESG-Tilt Balanced perform in 2023?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2023;,mixed,template
+SQL143,How did Aggressive Growth perform in 2015?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2015;,mixed,template
+SQL144,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL145,How did all ETFs perform in 2020?,"SELECT ticker, description, annual_return FROM annual_returns WHERE year = 2020 ORDER BY annual_return DESC;",annual_returns,manual
+SQL146,How did ESG-Tilt Balanced perform in 2015?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2015;,mixed,template
+SQL147,List all portfolios with their 10-year CAGR.,"SELECT portfolio, cagr FROM v_portfolio_cagr ORDER BY cagr DESC;",portfolio_annual_returns,manual
+SQL148,Show Capital Preservation returns from 2015 to 2024.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2015 AND 2024 ORDER BY year;",mixed,template
+SQL149,How did ESG-Tilt Balanced perform in 2023?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2023;,mixed,template
+SQL150,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL151,What was the highest annual return ever recorded for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL152,What was the highest annual return ever recorded for AGG?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL153,What was the annual return of GLD in 2020?,SELECT annual_return FROM annual_returns WHERE ticker = 'GLD' AND year = 2020;,mixed,template
+SQL154,Show Capital Preservation returns from 2024 to 2024.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2024 AND 2024 ORDER BY year;",mixed,template
+SQL155,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL156,Show me all years where Aggressive Growth had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL157,What was the annual return of ESGV in 2018?,SELECT annual_return FROM annual_returns WHERE ticker = 'ESGV' AND year = 2018;,mixed,template
+SQL158,Show me all years where Capital Preservation had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL159,Show me all years where Conservative Income had a negative return.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND annual_return < 0 ORDER BY year;",mixed,template
+SQL160,Show Capital Preservation returns from 2020 to 2023.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Capital Preservation' AND year BETWEEN 2020 AND 2023 ORDER BY year;",mixed,template
+SQL161,What is the average annual return of SPY over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'SPY';",mixed,template
+SQL162,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL163,How did ESG-Tilt Balanced perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2020;,mixed,template
+SQL164,How many trading days of data do we have for each ticker?,"SELECT ticker, COUNT(*) as trading_days FROM daily_prices GROUP BY ticker ORDER BY ticker;",daily_prices,manual
+SQL165,What is the average annual return of AGG over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'AGG';",mixed,template
+SQL166,On which day did SPY have the highest daily return?,"SELECT date, daily_return FROM daily_prices WHERE ticker = 'SPY' ORDER BY daily_return DESC LIMIT 1;",daily_prices,manual
+SQL167,Show Balanced Growth returns from 2018 to 2020.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2018 AND 2020 ORDER BY year;",mixed,template
+SQL168,Compare ESG-Tilt Balanced and Capital Preservation returns in 2022.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('ESG-Tilt Balanced', 'Capital Preservation') AND year = 2022 ORDER BY annual_return DESC;",mixed,template
+SQL169,How did ESG-Tilt Balanced perform in 2024?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2024;,mixed,template
+SQL170,What is the most recent closing price of SPY?,"SELECT date, close FROM daily_prices WHERE ticker = 'SPY' ORDER BY date DESC LIMIT 1;",daily_prices,manual
+SQL171,Compare Aggressive Growth and Balanced Growth returns in 2016.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Aggressive Growth', 'Balanced Growth') AND year = 2016 ORDER BY annual_return DESC;",mixed,template
+SQL172,What was the annual return of VNQ in 2019?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2019;,mixed,template
+SQL173,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL174,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL175,What was the highest annual return ever recorded for AGG?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'AGG' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL176,What is the average annual return of VNQ over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'VNQ';",mixed,template
+SQL177,How did Aggressive Growth perform in 2018?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year = 2018;,mixed,template
+SQL178,Show ESG-Tilt Balanced returns from 2019 to 2021.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year BETWEEN 2019 AND 2021 ORDER BY year;",mixed,template
+SQL179,What is the average annual return of GLD over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'GLD';",mixed,template
+SQL180,What is the average annual return of ESGV over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'ESGV';",mixed,template
+SQL181,What is the average annual return of VNQ over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'VNQ';",mixed,template
+SQL182,Show Aggressive Growth returns from 2022 to 2023.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Aggressive Growth' AND year BETWEEN 2022 AND 2023 ORDER BY year;",mixed,template
+SQL183,What was the annual return of VNQ in 2017?,SELECT annual_return FROM annual_returns WHERE ticker = 'VNQ' AND year = 2017;,mixed,template
+SQL184,What was the highest annual return ever recorded for SPY?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'SPY' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL185,How did Conservative Income perform in 2022?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Conservative Income' AND year = 2022;,mixed,template
+SQL186,What was the average daily return of ESGV in 2023?,"SELECT ROUND(AVG(daily_return), 6) as avg_daily_return FROM daily_prices WHERE ticker = 'ESGV' AND date LIKE '2023%';",daily_prices,manual
+SQL187,Show year-by-year returns for ESG-Tilt Balanced.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' ORDER BY year;",annual_returns,manual
+SQL188,What was the highest annual return ever recorded for ESGV?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'ESGV' ORDER BY annual_return DESC LIMIT 1;",mixed,template
+SQL189,Which ETF had the lowest volatility based on daily returns?,"SELECT ticker, ROUND(STDEV(daily_return), 6) as volatility FROM daily_prices GROUP BY ticker ORDER BY volatility ASC LIMIT 1;",daily_prices,manual
+SQL190,Show Balanced Growth returns from 2019 to 2020.,"SELECT year, annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year BETWEEN 2019 AND 2020 ORDER BY year;",mixed,template
+SQL191,What is the average annual return of AGG over all available years?,"SELECT ROUND(AVG(annual_return), 4) as avg_return FROM annual_returns WHERE ticker = 'AGG';",mixed,template
+SQL192,How did Balanced Growth perform in 2018?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'Balanced Growth' AND year = 2018;,mixed,template
+SQL193,What is the 10-year CAGR for each ETF?,"SELECT ticker, description, cagr FROM v_etf_cagr ORDER BY cagr DESC;",daily_prices,manual
+SQL194,What was the annual return of AGG in 2018?,SELECT annual_return FROM annual_returns WHERE ticker = 'AGG' AND year = 2018;,mixed,template
+SQL195,Which portfolio had the highest average return over all years?,"SELECT portfolio, ROUND(AVG(annual_return), 4) as avg_return FROM portfolio_annual_returns GROUP BY portfolio ORDER BY avg_return DESC LIMIT 1;",annual_returns,manual
+SQL196,How did ESG-Tilt Balanced perform in 2020?,SELECT annual_return FROM portfolio_annual_returns WHERE portfolio = 'ESG-Tilt Balanced' AND year = 2020;,mixed,template
+SQL197,Compare ESG-Tilt Balanced and Conservative Income returns in 2020.,"SELECT portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('ESG-Tilt Balanced', 'Conservative Income') AND year = 2020 ORDER BY annual_return DESC;",mixed,template
+SQL198,What was the highest annual return ever recorded for GLD?,"SELECT year, annual_return FROM annual_returns WHERE ticker = 'GLD' ORDER BY annual_return DESC LIMIT 1;",mixed,template
