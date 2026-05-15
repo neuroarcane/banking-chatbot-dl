@@ -1,0 +1,3 @@
+NSF Fee Policy
+An NSF fee of $45 is charged each time a transaction is returned due to insufficient funds. This applies to cheques, pre-authorized debits, and bill payments.
+Set up low-balance alerts to avoid NSF situations. Overdraft protection prevents most NSF occurrences. NSF fees are non-refundable except in confirmed cases of bank error. Contact us within 30 days to dispute a potential error.

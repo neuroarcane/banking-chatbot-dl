@@ -1,0 +1,3 @@
+How to Change Your PIN
+Your PIN can be changed at any ATM on our network or through online banking. At an ATM, insert your card, enter your current PIN, and select Change PIN. Enter the new 4-digit PIN twice to confirm. Online, go to Card Services and select Change PIN.
+Your PIN must not be a sequence like 1234 or repeated digits like 1111. PINs are stored in encrypted form and never visible to staff. If you forget your PIN, visit any branch with government-issued photo ID to reset it. Never share your PIN with anyone, including bank employees.

@@ -1,0 +1,3 @@
+How to Freeze or Unfreeze Your Card
+Freeze your card through the mobile app under Cards then Card Controls. A frozen card cannot be used for any transactions. Recurring payments already in progress are unaffected.
+To unfreeze, repeat the same steps. For confirmed lost or stolen cards, permanently cancel and request a replacement. All freeze actions are logged with a timestamp.

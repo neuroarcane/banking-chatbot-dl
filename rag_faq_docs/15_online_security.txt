@@ -1,0 +1,3 @@
+Online Banking Security
+Sessions are protected by 256-bit TLS encryption and multi-factor authentication. A one-time code is sent when you log in from a new device. We never ask for your full password, PIN, or card number.
+Use a password of at least 12 characters. Log out after each session. Account lockout occurs after 5 consecutive failed login attempts, requiring a reset by phone or branch visit.

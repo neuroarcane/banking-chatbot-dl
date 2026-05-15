@@ -1,0 +1,73 @@
+question,sql
+Show all transactions for customer 1,SELECT * FROM transactions WHERE customer_id = 1
+List January 2024 transactions,SELECT * FROM transactions WHERE date BETWEEN '2024-01-01' AND '2024-01-31'
+Transactions over 500 dollars,SELECT * FROM transactions WHERE amount > 500
+Find all grocery purchases,SELECT * FROM transactions WHERE category = 'Groceries'
+Show all dining transactions,SELECT * FROM transactions WHERE category = 'Dining'
+Transactions for customer 42 in March 2023,SELECT * FROM transactions WHERE customer_id = 42 AND date BETWEEN '2023-03-01' AND '2023-03-31'
+Show all credit transactions,SELECT * FROM transactions WHERE is_credit = 1
+Find transactions at Amazon,SELECT * FROM transactions WHERE merchant = 'Amazon'
+Purchases between 100 and 500 dollars,SELECT * FROM transactions WHERE amount BETWEEN 100 AND 500
+List all utility payments,SELECT * FROM transactions WHERE category = 'Utilities'
+Total spent by customer 5,SELECT SUM(amount) FROM transactions WHERE customer_id = 5 AND is_credit = 0
+How many transactions does customer 10 have,SELECT COUNT(*) FROM transactions WHERE customer_id = 10
+Average transaction for customer 3,SELECT AVG(amount) FROM transactions WHERE customer_id = 3
+Total grocery spending customer 7,SELECT SUM(amount) FROM transactions WHERE customer_id = 7 AND category = 'Groceries'
+Count dining transactions customer 20,SELECT COUNT(*) FROM transactions WHERE customer_id = 20 AND category = 'Dining'
+Largest transaction for customer 15,SELECT MAX(amount) FROM transactions WHERE customer_id = 15
+Q1 2023 spending customer 8,SELECT SUM(amount) FROM transactions WHERE customer_id = 8 AND date BETWEEN '2023-01-01' AND '2023-03-31' AND is_credit = 0
+Transactions by category customer 12,"SELECT category, COUNT(*) FROM transactions WHERE customer_id = 12 GROUP BY category"
+Monthly spending customer 2 in 2023,"SELECT strftime('%Y-%m', date) AS month, SUM(amount) FROM transactions WHERE customer_id = 2 AND is_credit = 0 AND date LIKE '2023%' GROUP BY month"
+Top 5 merchants customer 9,"SELECT merchant, SUM(amount) AS total FROM transactions WHERE customer_id = 9 AND is_credit = 0 GROUP BY merchant ORDER BY total DESC LIMIT 5"
+Customer 1 last 90 days,"SELECT * FROM transactions WHERE customer_id = 1 AND date >= date('now',-90 days')"
+Customer 5 April to June 2024,SELECT * FROM transactions WHERE customer_id = 5 AND date BETWEEN '2024-04-01' AND '2024-06-30'
+All transactions in 2023,SELECT * FROM transactions WHERE date LIKE '2023%'
+Customer 3 Q4 2023,SELECT * FROM transactions WHERE customer_id = 3 AND date BETWEEN '2023-10-01' AND '2023-12-31'
+Customer 18 Jan to Mar 2024,SELECT * FROM transactions WHERE customer_id = 18 AND date BETWEEN '2024-01-01' AND '2024-03-31'
+Latest 10 transactions customer 7,SELECT * FROM transactions WHERE customer_id = 7 ORDER BY date DESC LIMIT 10
+Oldest transaction customer 25,SELECT * FROM transactions WHERE customer_id = 25 ORDER BY date ASC LIMIT 1
+This year transactions customer 11,SELECT * FROM transactions WHERE customer_id = 11 AND date >= '2024-01-01'
+May 2023 customer 30,SELECT * FROM transactions WHERE customer_id = 30 AND date BETWEEN '2023-05-01' AND '2023-05-31'
+Transactions over 1000 customer 4,SELECT * FROM transactions WHERE customer_id = 4 AND amount > 1000
+Small transactions under 20 customer 13,SELECT * FROM transactions WHERE customer_id = 13 AND amount < 20
+Transactions 200 to 800 customer 22,SELECT * FROM transactions WHERE customer_id = 22 AND amount BETWEEN 200 AND 800
+Top 5 purchases customer 17,SELECT * FROM transactions WHERE customer_id = 17 AND is_credit = 0 ORDER BY amount DESC LIMIT 5
+Current balance customer 1,"SELECT balance FROM transactions WHERE customer_id = 1 ORDER BY date DESC, txn_id DESC LIMIT 1"
+Spending by category customer 14 2024,"SELECT category, SUM(amount) AS total FROM transactions WHERE customer_id = 14 AND is_credit = 0 AND date LIKE '2024%' GROUP BY category ORDER BY total DESC"
+Most expensive category customer 19,"SELECT category, SUM(amount) AS total FROM transactions WHERE customer_id = 19 AND is_credit = 0 GROUP BY category ORDER BY total DESC LIMIT 1"
+Grocery vs dining customer 5,"SELECT category, SUM(amount) FROM transactions WHERE customer_id = 5 AND category IN ('Groceries','Dining') AND is_credit = 0 GROUP BY category"
+Healthcare transactions customer 8,SELECT * FROM transactions WHERE customer_id = 8 AND category = 'Healthcare'
+Entertainment spending customer 3 this year,SELECT SUM(amount) FROM transactions WHERE customer_id = 3 AND category = 'Entertainment' AND date >= '2024-01-01'
+Transport charges customer 16 March 2023,SELECT * FROM transactions WHERE customer_id = 16 AND category = 'Transport' AND date BETWEEN '2023-03-01' AND '2023-03-31'
+Tim Hortons spend customer 2,SELECT SUM(amount) FROM transactions WHERE customer_id = 2 AND merchant = 'Tim Hortons'
+Netflix charges customer 5,SELECT * FROM transactions WHERE customer_id = 5 AND merchant = 'Netflix' ORDER BY date
+Amazon visits customer 10,SELECT COUNT(*) FROM transactions WHERE customer_id = 10 AND merchant = 'Amazon'
+Air Canada total customer 20,SELECT SUM(amount) FROM transactions WHERE customer_id = 20 AND merchant = 'Air Canada'
+IKEA transactions customer 7,SELECT * FROM transactions WHERE customer_id = 7 AND merchant = 'IKEA'
+Statement customer 3 January 2024,SELECT * FROM transactions WHERE customer_id = 3 AND date BETWEEN '2024-01-01' AND '2024-01-31' ORDER BY date
+Full history customer 50,SELECT * FROM transactions WHERE customer_id = 50 ORDER BY date
+Q1 2023 statement customer 12,SELECT * FROM transactions WHERE customer_id = 12 AND date BETWEEN '2023-01-01' AND '2023-03-31' ORDER BY date
+Year end 2023 customer 8,SELECT * FROM transactions WHERE customer_id = 8 AND date BETWEEN '2023-01-01' AND '2023-12-31' ORDER BY date
+Transactions over 2000 customer 5,SELECT * FROM transactions WHERE customer_id = 5 AND amount > 2000 ORDER BY date DESC
+Largest transaction customer 1,SELECT * FROM transactions WHERE customer_id = 1 ORDER BY amount DESC LIMIT 1
+Months of data customer 7,"SELECT COUNT(DISTINCT strftime('%Y-%m', date)) FROM transactions WHERE customer_id = 7"
+Credits received customer 11 2023,SELECT SUM(amount) FROM transactions WHERE customer_id = 11 AND is_credit = 1 AND date LIKE '2023%'
+Net cashflow customer 6 2024,SELECT SUM(CASE WHEN is_credit=1 THEN amount ELSE -amount END) FROM transactions WHERE customer_id = 6 AND date LIKE '2024%'
+Shopping transactions customer 9,SELECT * FROM transactions WHERE customer_id = 9 AND category = 'Shopping'
+Average grocery spend customer 15,SELECT AVG(amount) FROM transactions WHERE customer_id = 15 AND category = 'Groceries'
+All 2022 transactions customer 33,SELECT * FROM transactions WHERE customer_id = 33 AND date LIKE '2022%' ORDER BY date
+Spending per year customer 10,"SELECT strftime('%Y', date) AS year, SUM(amount) FROM transactions WHERE customer_id = 10 AND is_credit = 0 GROUP BY year"
+Unique merchants customer 3,SELECT COUNT(DISTINCT merchant) FROM transactions WHERE customer_id = 3
+Minimum transaction customer 8,SELECT MIN(amount) FROM transactions WHERE customer_id = 8
+Debit count customer 7,SELECT COUNT(*) FROM transactions WHERE customer_id = 7 AND is_credit = 0
+Entertainment customer 21,SELECT * FROM transactions WHERE customer_id = 21 AND category = 'Entertainment'
+Utilities customer 5 in 2023,SELECT * FROM transactions WHERE customer_id = 5 AND category = 'Utilities' AND date LIKE '2023%'
+Total transfers customer 30,SELECT SUM(amount) FROM transactions WHERE customer_id = 30 AND category = 'Transfers'
+Shopping over 800 customer 4,SELECT * FROM transactions WHERE customer_id = 4 AND category = 'Shopping' AND amount > 800
+5 recent transactions customer 2,SELECT * FROM transactions WHERE customer_id = 2 ORDER BY date DESC LIMIT 5
+Groceries over 300 customer 9,SELECT * FROM transactions WHERE customer_id = 9 AND category = 'Groceries' AND amount > 300
+Rogers charges customer 18,SELECT * FROM transactions WHERE customer_id = 18 AND merchant = 'Rogers'
+Customer categories count customer 5,SELECT COUNT(DISTINCT category) FROM transactions WHERE customer_id = 5
+Total inflows customer 44,SELECT SUM(amount) FROM transactions WHERE customer_id = 44 AND is_credit = 1
+April to September 2023 customer 25,SELECT * FROM transactions WHERE customer_id = 25 AND date BETWEEN '2023-04-01' AND '2023-09-30' ORDER BY date
+Transactions on 2023-12-25,SELECT * FROM transactions WHERE date = '2023-12-25'
