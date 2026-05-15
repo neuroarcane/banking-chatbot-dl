@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InvestIQ — Project Overview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #f4f6f9; color: #1a1a1a; padding: 24px 20px; max-width: 1100px; margin: 0 auto; }
+
+/* ── Header ── */
+.page-header { background: #1B4F8A; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+.page-header h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+.page-header .sub { font-size: 13px; color: #b8d4f0; margin-top: 4px; }
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+.b-white  { background: rgba(255,255,255,0.15); color: #fff; }
+.b-gold   { background: #f0c040; color: #1a1a1a; }
+.b-green  { background: #4caf50; color: #fff; }
+
+/* ── Section ── */
+.section { margin-bottom: 24px; }
+.section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #2E75B6; margin-bottom: 10px; padding-bottom: 4px; border-bottom: 2px solid #D5E8F0; }
+
+/* ── Architecture pipeline ── */
+.pipeline { display: flex; flex-direction: column; gap: 4px; }
+.pipe-row { display: flex; align-items: stretch; gap: 8px; }
+.pipe-label { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; border-radius: 6px; padding: 6px 5px; min-width: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.pl-input  { background: #1B4F8A; }
+.pl-nlp    { background: #5B3E9B; }
+.pl-router { background: #C0560A; }
+.pl-data   { background: #1E6B31; }
+.pl-output { background: #8B0000; }
+.pl-train  { background: #16a085; }
+
+.pipe-boxes { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
+.pbox { border-radius: 8px; padding: 8px 11px; flex: 1; min-width: 140px; }
+.pb-blue   { background: #e8f2fd; border: 1.5px solid #2E75B6; }
+.pb-purple { background: #f0ebff; border: 1.5px solid #5B3E9B; }
+.pb-orange { background: #fef3e2; border: 1.5px solid #C0560A; }
+.pb-green  { background: #e8f5e9; border: 1.5px solid #1E6B31; }
+.pb-red    { background: #fde8e8; border: 1.5px solid #8B0000; }
+.pb-teal   { background: #e0f5f1; border: 1.5px solid #16a085; }
+.pbox-title { font-size: 11.5px; font-weight: 700; margin-bottom: 2px; }
+.pbox-sub   { font-size: 10px; color: #555; line-height: 1.4; }
+.arrow { text-align: center; font-size: 16px; color: #bbb; line-height: 1; padding: 2px 0; }
+
+/* ── Two-col layout ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+/* ── Cards ── */
+.card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 14px 16px; }
+.card-title { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.card-sub   { font-size: 11px; color: #555; line-height: 1.5; }
+.card.accent-blue   { border-left: 4px solid #2E75B6; }
+.card.accent-purple { border-left: 4px solid #5B3E9B; }
+.card.accent-green  { border-left: 4px solid #1E6B31; }
+.card.accent-orange { border-left: 4px solid #C0560A; }
+.card.accent-teal   { border-left: 4px solid #16a085; }
+.card.accent-navy   { border-left: 4px solid #1B4F8A; }
+
+/* ── Team table ── */
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { background: #1B4F8A; color: #fff; padding: 8px 12px; text-align: left; font-size: 11px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f8fafd; }
+.pair-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 10px; margin-left: 6px; }
+.tag-pair-a  { background: #e8f2fd; color: #1B4F8A; }
+.tag-pair-b  { background: #e8f5e9; color: #1E6B31; }
+.tag-solo    { background: #f0ebff; color: #5B3E9B; }
+.tag-pm      { background: #fff3e0; color: #C0560A; }
+
+/* ── Timeline ── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-row { display: flex; gap: 0; }
+.tl-day { min-width: 72px; max-width: 72px; background: #1B4F8A; color: #fff; padding: 10px 8px; text-align: center; font-size: 11px; font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.tl-day.present { background: #c09000; }
+.tl-day.submit  { background: #1E6B31; }
+.tl-day .day-num { font-size: 18px; font-weight: 800; line-height: 1; }
+.tl-focus { min-width: 110px; max-width: 110px; background: #D5E8F0; padding: 10px 10px; font-size: 11px; font-weight: 700; color: #1B4F8A; display: flex; align-items: center; border-right: 1px solid #c5d8e8; }
+.tl-focus.present { background: #fff3cd; color: #856404; }
+.tl-focus.submit  { background: #d4edda; color: #1E6B31; }
+.tl-body { flex: 1; background: #fff; padding: 10px 14px; font-size: 11px; color: #444; line-height: 1.5; border-bottom: 1px solid #eee; }
+.tl-row:last-child .tl-body { border-bottom: none; }
+
+/* ── Dataset pills ── */
+.ds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+@media (max-width: 700px) { .ds-grid { grid-template-columns: 1fr 1fr; } }
+.ds-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; }
+.ds-name { font-size: 11.5px; font-weight: 700; margin-bottom: 3px; }
+.ds-size { font-size: 10px; color: #888; margin-bottom: 4px; }
+.ds-desc { font-size: 10px; color: #555; line-height: 1.4; }
+.ds-tag  { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 6px; margin-bottom: 4px; }
+.dt-generated { background: #d4edda; color: #1E6B31; }
+.dt-hub       { background: #e8f2fd; color: #1B4F8A; }
+.dt-synthetic { background: #f0ebff; color: #5B3E9B; }
+
+/* ── Stack pills ── */
+.stack-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-pill { background: #fff; border: 1px solid #ddd; border-radius: 20px; padding: 5px 12px; font-size: 11px; display: flex; align-items: center; gap: 6px; }
+.stack-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-blue   { background: #2E75B6; }
+.dot-purple { background: #5B3E9B; }
+.dot-green  { background: #1E6B31; }
+.dot-orange { background: #C0560A; }
+.dot-teal   { background: #16a085; }
+.dot-navy   { background: #1B4F8A; }
+
+/* ── Callout ── */
+.callout { border-radius: 8px; padding: 12px 16px; font-size: 11.5px; line-height: 1.6; margin-bottom: 12px; }
+.callout strong { font-weight: 700; }
+.co-blue   { background: #e8f2fd; border-left: 4px solid #2E75B6; }
+.co-purple { background: #f0ebff; border-left: 4px solid #5B3E9B; }
+.co-green  { background: #d4edda; border-left: 4px solid #1E6B31; }
+.co-orange { background: #fff3e0; border-left: 4px solid #C0560A; }
+
+/* ── Footer ── */
+.page-footer { text-align: center; font-size: 11px; color: #aaa; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e0e0e0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <h1>InvestIQ</h1>
+    <div class="sub">Bank Investment Advisory &mdash; NLP + RAG Conversational System</div>
+    <div class="sub" style="margin-top:2px;">AASD 4010 Deep Learning I &nbsp;|&nbsp; George Brown College &nbsp;|&nbsp; May 2026</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge b-white">Option 2 &mdash; LLM / RAG</span>
+    <span class="badge b-white">6 Members &nbsp;|&nbsp; 2 Pairs + 2 Solos</span>
+    <span class="badge b-gold">10-Day Sprint</span>
+    <span class="badge b-green">Python Only</span>
+  </div>
+</div>
+
+<!-- SYSTEM ARCHITECTURE -->
+<div class="section">
+  <div class="section-title">System Architecture &mdash; End-to-End Pipeline</div>
+  <div class="pipeline">
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-input">Input</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-blue">
+          <div class="pbox-title">Officer's Natural Language Query</div>
+          <div class="pbox-sub">Free-text question with optional client feature context &mdash; typed directly by the financial advisory officer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-nlp">NLP</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-purple">
+          <div class="pbox-title">Intent Classifier (BERT)</div>
+          <div class="pbox-sub">Fine-tuned bert-base-uncased &rarr; RECOMMENDATION / DATA_QUERY / QUALITATIVE / CLARIFICATION</div>
+        </div>
+        <div class="pbox pb-purple">
+          <div class="pbox-title">Entity Extractor</div>
+          <div class="pbox-sub">spaCy / rule-based NER &rarr; age, risk tolerance, horizon, amount, ESG flag</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-router">Router</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-orange">
+          <div class="pbox-title">Query Router</div>
+          <div class="pbox-sub">Branch A: client features present &rarr; Portfolio Classifier &nbsp;|&nbsp; Branch B: data request &rarr; Text-to-SQL &nbsp;|&nbsp; Branch C: qualitative &rarr; RAG</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-data">Data</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-green">
+          <div class="pbox-title">Portfolio Classifier</div>
+          <div class="pbox-sub">MLP / LSTM trained on 5,000 synthetic client profiles (pre-generated CSV) &rarr; 5-class portfolio label + confidence</div>
+        </div>
+        <div class="pbox pb-green">
+          <div class="pbox-title">Text-to-SQL (T5)</div>
+          <div class="pbox-sub">Fine-tuned t5-small &rarr; SQL &rarr; executed against pre-built etf_returns.db (SQLite, 13,145 rows of synthetic ETF price history)</div>
+        </div>
+        <div class="pbox pb-green">
+          <div class="pbox-title">RAG Store</div>
+          <div class="pbox-sub">FAISS vector index of pre-chunked fund fact sheets &rarr; top-3 retrieved chunks injected into LLM prompt</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-output">Output</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-red">
+          <div class="pbox-title">Text Answer</div>
+          <div class="pbox-sub">Portfolio name, rationale, confidence score; or plain-text answer from RAG</div>
+        </div>
+        <div class="pbox pb-red">
+          <div class="pbox-title">Chart / Table</div>
+          <div class="pbox-sub">Matplotlib line chart, bar chart, or pandas table auto-selected from SQL query result shape</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-train">Train</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-teal">
+          <div class="pbox-title">Fine-tune BERT Intent</div>
+          <div class="pbox-sub">500-sample labelled dataset (pre-generated) &rarr; satisfies DL training requirement</div>
+        </div>
+        <div class="pbox pb-teal">
+          <div class="pbox-title">Fine-tune T5 Text-to-SQL</div>
+          <div class="pbox-sub">198 NL&rarr;SQL finance pairs (pre-generated) + Spider finance subset</div>
+        </div>
+        <div class="pbox pb-teal">
+          <div class="pbox-title">Benchmark</div>
+          <div class="pbox-sub">Zero-shot LLM vs fine-tuned model accuracy compared across all three trained components</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DATASETS -->
+<div class="section">
+  <div class="section-title">Datasets &mdash; All Pre-Generated, No Live API Calls Required</div>
+  <div class="callout co-green">
+    <strong>Note:</strong> All datasets are already generated and saved in the <code>/data</code> folder. There are no live API dependencies &mdash; Yahoo Finance and FRED have been replaced by a pre-built synthetic ETF price dataset with realistic geometric Brownian motion parameters. The schema is identical, so the SQLite database works as a drop-in replacement.
+  </div>
+  <div class="ds-grid">
+    <div class="ds-card">
+      <div class="ds-name">synthetic_client_profiles.csv</div>
+      <span class="ds-tag dt-generated">Pre-generated</span>
+      <div class="ds-size">5,000 rows &middot; 11 features</div>
+      <div class="ds-desc">Age, income bracket, risk tolerance (1&ndash;5), horizon, ESG flag, equity %, bond %, invest amount &rarr; portfolio label. 5% noise added. Used to train the portfolio classifier.</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-name">etf_returns.db</div>
+      <span class="ds-tag dt-generated">Pre-generated</span>
+      <div class="ds-size">SQLite &middot; 5 tables &middot; 776 KB</div>
+      <div class="ds-desc">13,145 daily price rows for SPY, AGG, ESGV, VNQ, GLD (synthetic GBM). Annual returns, blended portfolio returns, CAGR summaries. Powers the Text-to-SQL branch.</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-name">intent_classification.csv</div>
+      <span class="ds-tag dt-generated">Pre-generated</span>
+      <div class="ds-size">500 rows &middot; 4 balanced classes</div>
+      <div class="ds-desc">Labelled financial advisory questions: RECOMMENDATION, DATA_QUERY, QUALITATIVE, CLARIFICATION (125 each). Used to fine-tune the BERT intent classifier.</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-name">text_to_sql_finance.csv</div>
+      <span class="ds-tag dt-generated">Pre-generated</span>
+      <div class="ds-size">198 NL&rarr;SQL pairs</div>
+      <div class="ds-desc">Natural language questions mapped to executable SQL targeting all 5 tables in etf_returns.db. Covers aggregations, JOINs, rankings, time-range queries. Used to fine-tune T5.</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-name">Spider (finance subset)</div>
+      <span class="ds-tag dt-hub">HuggingFace Hub</span>
+      <div class="ds-size">~2,000 pairs (filtered)</div>
+      <div class="ds-desc">Finance-adjacent schemas from Yale NLP Spider dataset, loaded via <code>datasets</code> library. Supplements text_to_sql_finance.csv for T5 fine-tuning coverage of JOIN queries.</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-name">Financial PhraseBank</div>
+      <span class="ds-tag dt-hub">HuggingFace Hub</span>
+      <div class="ds-size">4,845 sentences</div>
+      <div class="ds-desc">Finance sentences labelled positive / negative / neutral. Optional supplement to the intent classifier training set for richer domain vocabulary coverage.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="section">
+  <div class="section-title">Team Structure &mdash; 6 Members &nbsp;|&nbsp; 2 Pairs + 2 Solos</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Student ID</th>
+        <th>Workstream</th>
+        <th>Primary Deliverable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>PM &middot; RAG &middot; Router &middot; Output</strong> <span class="pair-tag tag-pm">Solo / PM</span></td>
+        <td>Query Router, FAISS RAG store, output formatter (text + charts), end-to-end integration by Day 5</td>
+      </tr>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>BERT Intent Classifier</strong> <span class="pair-tag tag-pair-a">Pair A</span></td>
+        <td>Fine-tuned BERT on 500-sample intent dataset. Loss curve, F1, confusion matrix.</td>
+      </tr>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>Entity Extractor &middot; Model Eval</strong> <span class="pair-tag tag-pair-a">Pair A</span></td>
+        <td>NER layer (age, risk, horizon, ESG). Unified evaluation tables across all models for report.</td>
+      </tr>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>T5 Text-to-SQL Fine-tuning</strong> <span class="pair-tag tag-pair-b">Pair B</span></td>
+        <td>Fine-tuned t5-small on finance pairs + Spider. Exact Match %, Execution Accuracy %.</td>
+      </tr>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>SQLite &middot; Query Execution &middot; Charts</strong> <span class="pair-tag tag-pair-b">Pair B</span></td>
+        <td>SQL executor with error recovery. Matplotlib chart auto-selector from query result shape.</td>
+      </tr>
+      <tr>
+        <td>[Name]</td>
+        <td>[ID]</td>
+        <td><strong>Portfolio Classifier &middot; EDA &middot; Report</strong> <span class="pair-tag tag-solo">Solo</span></td>
+        <td>MLP/LSTM on 5k client profiles. Three EDA notebooks. Full report compilation &amp; submission zip.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-title">10-Day Sprint Timeline &mdash; 4&ndash;6 Hours Per Day</div>
+  <div class="timeline">
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">1</span><span>Kickoff</span></div>
+      <div class="tl-focus">Kickoff</div>
+      <div class="tl-body">All members. Clone repo, set up venv + requirements.txt, explore all 4 datasets in Jupyter. PM scaffolds folder structure with Claude Code. GitHub Project board created. Branch naming agreed.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">2</span><span>Parallel Build</span></div>
+      <div class="tl-focus">Parallel Build</div>
+      <div class="tl-body"><strong>Pair A:</strong> label 200 intent samples; BERT tokeniser check. &nbsp;<strong>Pair B:</strong> Spider schema exploration; 10 manual SQL queries against etf_returns.db. &nbsp;<strong>Solo (Portfolio):</strong> full EDA on client profiles &mdash; class balance, pairplot, correlation matrix. &nbsp;<strong>PM:</strong> chunk + embed 20 RAG docs into FAISS.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">3</span><span>First Train</span></div>
+      <div class="tl-focus">First Training</div>
+      <div class="tl-body"><strong>Pair A:</strong> first BERT run (3 epochs); log baseline F1. &nbsp;<strong>Pair B:</strong> first T5 run; test Exact Match on holdout. &nbsp;<strong>Solo:</strong> MLP v1; confusion matrix; start hyperparameter log. &nbsp;<strong>PM:</strong> FAISS retrieval end-to-end; router stub by intent class.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">4</span><span>Iterate</span></div>
+      <div class="tl-focus">Iterate + Improve</div>
+      <div class="tl-body">All models get a second training pass. Pair A: full 500-sample BERT run, adjust learning rate. Pair B: augment with Spider finance subset. Solo: LSTM alternative vs MLP comparison. PM: output formatter (text + chart selector). Use Claude Code to auto-generate evaluation scripts.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">5</span><span>Integrate</span></div>
+      <div class="tl-focus">Integration Day</div>
+      <div class="tl-body"><strong>Target: full pipeline runs without errors on 10 curated test queries.</strong> PM merges all branches. Each member fixes their own blockers. End-to-end smoke test covering all 4 intent classes. Document every failure mode.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">6</span><span>Polish</span></div>
+      <div class="tl-focus">Polish + Edge Cases</div>
+      <div class="tl-body">Pair A: ambiguous intent handling, confidence threshold. Pair B: SQL error recovery (re-prompt on syntax error), expand chart types. Solo: finalise EDA notebooks; write Dataset + Model report sections. PM: 30-query stress test; fix router edge cases.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">7</span><span>Demo Build</span></div>
+      <div class="tl-focus">Demo Build</div>
+      <div class="tl-body">Full 20+ query demo walkthrough. Fix top 5 failure cases. Solo completes report draft (all sections except Results). Each pair writes their model comparison narrative. PM builds slide deck skeleton. Cursor used to clean up all code (docstrings, type hints, remove debug prints).</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">8</span><span>Report</span></div>
+      <div class="tl-focus">Report + Rehearsal</div>
+      <div class="tl-body">Report writing sprint. PM compiles into final template. First full 15-min rehearsal &mdash; time each section. All notebooks verified to run clean top-to-bottom. Contribution table filled in precisely. <strong>No new features after this point.</strong></div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day present"><span class="day-num">9</span><span>Present</span></div>
+      <div class="tl-focus present">PRESENTATION</div>
+      <div class="tl-body"><strong>Live class presentation &mdash; 15 min + 5 min Q&amp;A.</strong> Demo: 3 live queries &mdash; one RECOMMENDATION (client profile &rarr; portfolio), one DATA_QUERY (SQL &rarr; line chart), one QUALITATIVE (RAG response). PM presents architecture; each member presents their model results. <em>Do not change any code after this session.</em></div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day submit"><span class="day-num">10</span><span>Submit</span></div>
+      <div class="tl-focus submit">Final Submission</div>
+      <div class="tl-body">Final polish only &mdash; no new features. Run all notebooks top-to-bottom one last time. Verify all paths are relative. Solo compiles zip: <code>/data + /notebooks + /models + /rag + /output + /report + /slides</code>. PM checks against rubric. Submit on Blackboard by EOD.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TECH STACK -->
+<div class="section">
+  <div class="section-title">Technology Stack &mdash; Python Only</div>
+  <div class="two-col" style="margin-bottom:12px;">
+    <div class="callout co-blue" style="margin-bottom:0;">
+      <strong>Cursor:</strong> Primary IDE for all 6 members. Use inline AI (Cmd+K / Ctrl+K) to generate boilerplate, refactor functions, and explain APIs. Open the project root as workspace for full cross-file context. Each workstream works on its own Git branch inside Cursor.
+    </div>
+    <div class="callout co-purple" style="margin-bottom:0;">
+      <strong>Claude Code:</strong> Scaffolding, debugging, and integration. Day 1: scaffold folders. Day 4: generate eval scripts. Day 6: debug SQL errors. Day 8: code cleanup. Run from project root for full context.
+    </div>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-pill"><span class="dot dot-navy"></span>torch</div>
+    <div class="stack-pill"><span class="dot dot-blue"></span>transformers</div>
+    <div class="stack-pill"><span class="dot dot-blue"></span>datasets</div>
+    <div class="stack-pill"><span class="dot dot-purple"></span>sentence-transformers</div>
+    <div class="stack-pill"><span class="dot dot-teal"></span>faiss-cpu</div>
+    <div class="stack-pill"><span class="dot dot-green"></span>scikit-learn</div>
+    <div class="stack-pill"><span class="dot dot-green"></span>pandas</div>
+    <div class="stack-pill"><span class="dot dot-green"></span>numpy</div>
+    <div class="stack-pill"><span class="dot dot-navy"></span>sqlite3 (stdlib)</div>
+    <div class="stack-pill"><span class="dot dot-orange"></span>matplotlib</div>
+    <div class="stack-pill"><span class="dot dot-orange"></span>seaborn</div>
+    <div class="stack-pill"><span class="dot dot-blue"></span>jupyter</div>
+    <div class="stack-pill"><span class="dot dot-purple"></span>spacy</div>
+  </div>
+</div>
+
+<!-- SAMPLE QUERIES -->
+<div class="section">
+  <div class="section-title">Sample System Interactions</div>
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div class="card accent-blue">
+      <div class="card-title">RECOMMENDATION &rarr; Portfolio Classifier branch</div>
+      <div class="card-sub">
+        <em>Officer:</em> "My client is 45 years old, moderate risk, $200K to invest, 10-year horizon, prefers ESG. What do you recommend?"<br>
+        <em>System:</em> Intent=RECOMMENDATION &nbsp;|&nbsp; Entities: age=45, risk=moderate, amount=200000, horizon=10, esg=1 &nbsp;|&nbsp; <strong>Recommended: ESG-Tilt Balanced &mdash; 60% equity / 30% bonds / 10% alternatives. Confidence: 87%</strong>
+      </div>
+    </div>
+    <div class="card accent-green">
+      <div class="card-title">DATA_QUERY &rarr; Text-to-SQL branch + chart</div>
+      <div class="card-sub">
+        <em>Officer:</em> "Show me the 5-year annual returns of Balanced Growth vs Aggressive Growth."<br>
+        <em>System:</em> Intent=DATA_QUERY &nbsp;|&nbsp; Generated SQL: <code>SELECT year, portfolio, annual_return FROM portfolio_annual_returns WHERE portfolio IN ('Balanced Growth','Aggressive Growth') AND year &gt;= 2020</code> &nbsp;|&nbsp; <strong>Returns grouped line chart</strong>
+      </div>
+    </div>
+    <div class="card accent-purple">
+      <div class="card-title">QUALITATIVE &rarr; RAG branch</div>
+      <div class="card-sub">
+        <em>Officer:</em> "What are the main risks of the Aggressive Growth portfolio in a rising interest rate environment?"<br>
+        <em>System:</em> Intent=QUALITATIVE &nbsp;|&nbsp; Retrieved 3 chunks from fund fact sheets &nbsp;|&nbsp; <strong>Plain-text answer synthesised from retrieved context</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  InvestIQ Project Brief &nbsp;&middot;&nbsp; AASD 4010 Deep Learning I &nbsp;&middot;&nbsp; George Brown College &nbsp;&middot;&nbsp; May 2026
+</div>
+
+</body>
+</html>
