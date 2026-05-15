@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BankAssist v2.0 — Project Overview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #f4f6f9; color: #1a1a1a; padding: 24px 20px; max-width: 1100px; margin: 0 auto; }
+
+/* ── Header ── */
+.page-header { background: #1B4F8A; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
+.page-header h1 { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+.page-header .sub { font-size: 13px; color: #b8d4f0; margin-top: 4px; }
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+.b-white  { background: rgba(255,255,255,0.15); color: #fff; }
+.b-gold   { background: #f0c040; color: #1a1a1a; }
+.b-green  { background: #4caf50; color: #fff; }
+.b-red    { background: #e53935; color: #fff; }
+
+/* ── Section ── */
+.section { margin-bottom: 24px; }
+.section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #2E75B6; margin-bottom: 10px; padding-bottom: 4px; border-bottom: 2px solid #D5E8F0; }
+
+/* ── Architecture pipeline ── */
+.pipeline { display: flex; flex-direction: column; gap: 4px; }
+.pipe-row { display: flex; align-items: stretch; gap: 8px; }
+.pipe-label { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; border-radius: 6px; padding: 6px 5px; min-width: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.pl-input  { background: #1B4F8A; }
+.pl-auth   { background: #B8860B; }
+.pl-nlp    { background: #5B3E9B; }
+.pl-router { background: #C0560A; }
+.pl-data   { background: #1E6B31; }
+.pl-output { background: #8B0000; }
+.pl-train  { background: #16a085; }
+
+.pipe-boxes { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
+.pbox { border-radius: 8px; padding: 8px 11px; flex: 1; min-width: 140px; }
+.pb-blue   { background: #e8f2fd; border: 1.5px solid #2E75B6; }
+.pb-purple { background: #f0ebff; border: 1.5px solid #5B3E9B; }
+.pb-orange { background: #fef3e2; border: 1.5px solid #C0560A; }
+.pb-green  { background: #e8f5e9; border: 1.5px solid #1E6B31; }
+.pb-red    { background: #fde8e8; border: 1.5px solid #8B0000; }
+.pb-teal   { background: #e0f5f1; border: 1.5px solid #16a085; }
+.pb-gold   { background: #fffbe6; border: 1.5px solid #B8860B; }
+.pbox-title { font-size: 11.5px; font-weight: 700; margin-bottom: 2px; }
+.pbox-sub   { font-size: 10px; color: #555; line-height: 1.4; }
+.arrow { text-align: center; font-size: 16px; color: #bbb; line-height: 1; padding: 2px 0; }
+
+/* ── Two-col / three-col layout ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+/* ── Cards ── */
+.card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 14px 16px; }
+.card-title { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.card-sub   { font-size: 11px; color: #555; line-height: 1.5; }
+.card.accent-blue   { border-left: 4px solid #2E75B6; }
+.card.accent-purple { border-left: 4px solid #5B3E9B; }
+.card.accent-green  { border-left: 4px solid #1E6B31; }
+.card.accent-orange { border-left: 4px solid #C0560A; }
+.card.accent-teal   { border-left: 4px solid #16a085; }
+.card.accent-navy   { border-left: 4px solid #1B4F8A; }
+.card.accent-gold   { border-left: 4px solid #B8860B; }
+
+/* ── Intent chips ── */
+.intent-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.intent-chip { font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+.ic-blue   { background: #e8f2fd; color: #1B4F8A; border: 1px solid #2E75B6; }
+.ic-green  { background: #e8f5e9; color: #1E6B31; border: 1px solid #1E6B31; }
+.ic-orange { background: #fef3e2; color: #C0560A; border: 1px solid #C0560A; }
+.ic-purple { background: #f0ebff; color: #5B3E9B; border: 1px solid #5B3E9B; }
+.ic-gold   { background: #fffbe6; color: #7d6000; border: 1px solid #B8860B; }
+
+/* ── Team table ── */
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { background: #1B4F8A; color: #fff; padding: 8px 12px; text-align: left; font-size: 11px; font-weight: 700; }
+td { padding: 8px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f8fafd; }
+.pair-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 10px; margin-left: 6px; }
+.tag-pair-a  { background: #e8f2fd; color: #1B4F8A; }
+.tag-pair-b  { background: #e8f5e9; color: #1E6B31; }
+.tag-solo    { background: #f0ebff; color: #5B3E9B; }
+.tag-pm      { background: #fff3e0; color: #C0560A; }
+
+/* ── Timeline ── */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-row { display: flex; gap: 0; }
+.tl-day { min-width: 72px; max-width: 72px; background: #1B4F8A; color: #fff; padding: 10px 8px; text-align: center; font-size: 11px; font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.tl-day.present  { background: #c09000; }
+.tl-day.present2 { background: #9b3ec0; }
+.tl-day.submit   { background: #1E6B31; }
+.tl-day .day-num { font-size: 18px; font-weight: 800; line-height: 1; }
+.tl-focus { min-width: 130px; max-width: 130px; background: #D5E8F0; padding: 10px 10px; font-size: 11px; font-weight: 700; color: #1B4F8A; display: flex; align-items: center; border-right: 1px solid #c5d8e8; }
+.tl-focus.present  { background: #fff3cd; color: #856404; }
+.tl-focus.present2 { background: #f0ebff; color: #5B3E9B; }
+.tl-focus.submit   { background: #d4edda; color: #1E6B31; }
+.tl-body { flex: 1; background: #fff; padding: 10px 14px; font-size: 11px; color: #444; line-height: 1.5; border-bottom: 1px solid #eee; }
+.tl-row:last-child .tl-body { border-bottom: none; }
+
+/* ── Dataset cards ── */
+.ds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+@media (max-width: 700px) { .ds-grid { grid-template-columns: 1fr 1fr; } }
+.ds-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; }
+.ds-name { font-size: 11.5px; font-weight: 700; margin-bottom: 3px; }
+.ds-size { font-size: 10px; color: #888; margin-bottom: 4px; }
+.ds-desc { font-size: 10px; color: #555; line-height: 1.4; }
+.ds-tag  { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 6px; margin-bottom: 4px; }
+.dt-generated { background: #d4edda; color: #1E6B31; }
+.dt-hub       { background: #e8f2fd; color: #1B4F8A; }
+.dt-synthetic { background: #f0ebff; color: #5B3E9B; }
+
+/* ── Stack pills ── */
+.stack-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-pill { background: #fff; border: 1px solid #ddd; border-radius: 20px; padding: 5px 12px; font-size: 11px; display: flex; align-items: center; gap: 6px; }
+.stack-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-blue   { background: #2E75B6; }
+.dot-purple { background: #5B3E9B; }
+.dot-green  { background: #1E6B31; }
+.dot-orange { background: #C0560A; }
+.dot-teal   { background: #16a085; }
+.dot-navy   { background: #1B4F8A; }
+.dot-gold   { background: #B8860B; }
+
+/* ── Callout ── */
+.callout { border-radius: 8px; padding: 12px 16px; font-size: 11.5px; line-height: 1.6; margin-bottom: 12px; }
+.callout strong { font-weight: 700; }
+.co-blue   { background: #e8f2fd; border-left: 4px solid #2E75B6; }
+.co-purple { background: #f0ebff; border-left: 4px solid #5B3E9B; }
+.co-green  { background: #d4edda; border-left: 4px solid #1E6B31; }
+.co-orange { background: #fff3e0; border-left: 4px solid #C0560A; }
+.co-gold   { background: #fffbe6; border-left: 4px solid #B8860B; }
+
+/* ── Chat bubbles ── */
+.chat-window { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 16px; }
+.msg { display: flex; gap: 8px; margin-bottom: 10px; align-items: flex-start; }
+.msg.user { flex-direction: row-reverse; }
+.avatar { width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.av-bot  { background: #1B4F8A; color: #fff; }
+.av-user { background: #e0e0e0; color: #333; }
+.bubble { max-width: 75%; padding: 8px 12px; border-radius: 12px; font-size: 11.5px; line-height: 1.5; }
+.bubble.bot  { background: #f0f4fa; color: #1a1a1a; border-bottom-left-radius: 3px; }
+.bubble.user { background: #1B4F8A; color: #fff; border-bottom-right-radius: 3px; }
+.dl-btn { display: inline-block; margin-top: 6px; background: #1E6B31; color: #fff; font-size: 10.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+
+/* ── Auth flow ── */
+.auth-steps { display: flex; gap: 0; margin-top: 8px; }
+.auth-step { flex: 1; background: #fffbe6; border: 1px solid #e0c840; border-right: none; padding: 10px 12px; font-size: 10.5px; line-height: 1.4; }
+.auth-step:first-child { border-radius: 8px 0 0 8px; }
+.auth-step:last-child  { border-right: 1px solid #e0c840; border-radius: 0 8px 8px 0; }
+.auth-step-num { font-size: 13px; font-weight: 800; color: #B8860B; margin-bottom: 3px; }
+.auth-step-label { font-size: 10px; font-weight: 700; color: #333; margin-bottom: 2px; }
+.auth-step-desc  { font-size: 10px; color: #666; }
+.auth-arrow { display: flex; align-items: center; color: #B8860B; font-size: 18px; padding: 0 2px; }
+
+/* ── Footer ── */
+.page-footer { text-align: center; font-size: 11px; color: #aaa; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e0e0e0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="page-header">
+  <div>
+    <h1>BankAssist</h1>
+    <div class="sub">Bank Customer Service Chatbot &mdash; NLP + Streamlit + Statement Generation System</div>
+    <div class="sub" style="margin-top:6px;font-size:11px;opacity:0.75;">AASD 4010 Deep Learning I &nbsp;|&nbsp; George Brown College &nbsp;|&nbsp; May 2026</div>
+  </div>
+  <div class="badge-row">
+    <span class="badge b-gold">v2.0</span>
+    <span class="badge b-white">10-Day Sprint</span>
+    <span class="badge b-white">6 Members</span>
+    <span class="badge b-white">Python Only</span>
+    <span class="badge b-green">Streamlit UI</span>
+    <span class="badge b-green">BERT + T5 + RAG</span>
+  </div>
+</div>
+
+<!-- ═══════════════ WHAT CHANGED IN v2 ═══════════════ -->
+<div class="section">
+  <div class="section-title">What Changed in v2.0</div>
+  <div class="callout co-gold">
+    <strong>Persona pivot:</strong> The project has moved from an internal bank investment advisory officer tool to a <strong>customer-facing chatbot</strong>. Customers authenticate themselves, ask for account statements over a date range, query individual transactions, and download a CSV — all through a Streamlit chat UI. The three deep learning components (BERT intent classifier, T5 Text-to-SQL, FAISS RAG) remain unchanged and continue to satisfy the rubric. The main additions are an <strong>authentication layer</strong> (SQLite customer lookup), a <strong>statement generation engine</strong> (pandas date-range filter → CSV), and the <strong>Streamlit front end</strong>.
+  </div>
+</div>
+
+<!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+<div class="section">
+  <div class="section-title">System Architecture</div>
+  <div class="pipeline">
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-input">Input</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-blue">
+          <div class="pbox-title">Streamlit Chat UI</div>
+          <div class="pbox-sub">st.chat_input, st.chat_message, st.session_state<br>Sidebar: account number / mobile / customer ID login form</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-nlp">NLP</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-purple">
+          <div class="pbox-title">BERT Intent Classifier</div>
+          <div class="pbox-sub">Fine-tuned bert-base-uncased. 5 classes: GENERATE_STATEMENT, QUERY_TRANSACTIONS, AUTHENTICATE, HELP, DOWNLOAD_CSV</div>
+        </div>
+        <div class="pbox pb-purple">
+          <div class="pbox-title">NER / Date Extractor</div>
+          <div class="pbox-sub">spaCy + regex extracts date ranges ("last 3 months", "Jan to March"), account references, and transaction keywords from free-form text</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-router">Router</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-orange">
+          <div class="pbox-title">Intent Router</div>
+          <div class="pbox-sub">Routes each turn to the correct handler based on BERT output. Unauthenticated requests are redirected to AUTH handler regardless of intent.</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-data">Data</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-green">
+          <div class="pbox-title">Transaction DB Handler</div>
+          <div class="pbox-sub"><strong>synthetic_transactions.db</strong> (SQLite). pandas date-range filter. Returns DataFrame for statement and CSV export via st.download_button</div>
+        </div>
+        <div class="pbox pb-green">
+          <div class="pbox-title">T5 Text-to-SQL</div>
+          <div class="pbox-sub">Fine-tuned t5-small on Spider + synthetic finance pairs. Converts NL transaction queries to SQL. Executed against synthetic_transactions.db</div>
+        </div>
+        <div class="pbox pb-teal">
+          <div class="pbox-title">FAISS RAG (Help Branch)</div>
+          <div class="pbox-sub">all-MiniLM-L6-v2 embeddings. Retrieves FAQ / policy / product docs for HELP intent. Returns top-k passage as bot reply</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-output">Output</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-red">
+          <div class="pbox-title">Chat Response</div>
+          <div class="pbox-sub">Structured text reply via st.chat_message("assistant")</div>
+        </div>
+        <div class="pbox pb-red">
+          <div class="pbox-title">CSV Download</div>
+          <div class="pbox-sub">st.download_button delivers statement as account_statement.csv</div>
+        </div>
+        <div class="pbox pb-red">
+          <div class="pbox-title">matplotlib Chart</div>
+          <div class="pbox-sub">Optional: st.pyplot() renders spending trend or transaction bar chart when user requests "show me a chart"</div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">&#8595;</div>
+
+    <div class="pipe-row">
+      <div class="pipe-label pl-train">Training</div>
+      <div class="pipe-boxes">
+        <div class="pbox pb-teal">
+          <div class="pbox-title">BERT Fine-tuning</div>
+          <div class="pbox-sub">HuggingFace Trainer API. intent_classification_v2.csv (600 rows, 5 classes). Metric: weighted F1.</div>
+        </div>
+        <div class="pbox pb-teal">
+          <div class="pbox-title">T5 Fine-tuning</div>
+          <div class="pbox-sub">Seq2seq training. text_to_sql_transactions.csv (200+ pairs). Metric: exact-match SQL accuracy.</div>
+        </div>
+        <div class="pbox pb-teal">
+          <div class="pbox-title">RAG Index Build</div>
+          <div class="pbox-sub">faiss-cpu index over FAQ / policy documents. Eval: retrieval precision@3 on held-out questions.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ INTENT CLASSES ═══════════════ -->
+<div class="section">
+  <div class="section-title">BERT Intent Classes (4-Class Classifier)</div>
+  <div class="two-col">
+    <div>
+      <div class="intent-row">
+        <span class="intent-chip ic-blue">GENERATE_STATEMENT</span>
+        <span class="intent-chip ic-green">QUERY_TRANSACTIONS</span>
+        <span class="intent-chip ic-purple">HELP</span>
+        <span class="intent-chip ic-orange">DOWNLOAD_CSV</span>
+      </div>
+      <div style="margin-top:12px;font-size:11px;color:#555;line-height:1.6;">
+        Training set: <strong>intent_classification_v2.csv</strong> — 600 rows, 150 per class, balanced.<br>
+        Model: <strong>bert-base-uncased</strong> fine-tuned 3 epochs, lr 2e-5, batch 16.<br>
+        Eval metric: <strong>weighted F1</strong> on 20% held-out split.
+      </div>
+    </div>
+    <div>
+      <div class="card" style="font-size:11px;line-height:1.7;">
+        <div class="card-title">Sample utterances per class</div>
+        <div><span class="intent-chip ic-blue" style="font-size:9px;">GENERATE_STATEMENT</span> &nbsp;"Give me my statement for April"</div>
+        <div><span class="intent-chip ic-green" style="font-size:9px;">QUERY_TRANSACTIONS</span> &nbsp;"Show all purchases over $200 last month"</div>
+        <div><span class="intent-chip ic-purple" style="font-size:9px;">HELP</span> &nbsp;"What documents do I need to open an account?"</div>
+        <div><span class="intent-chip ic-orange" style="font-size:9px;">DOWNLOAD_CSV</span> &nbsp;"Download my transactions as a spreadsheet"</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DATASETS ═══════════════ -->
+<div class="section">
+  <div class="section-title">Datasets (All Pre-Generated, No Live APIs)</div>
+  <div class="ds-grid">
+
+    <div class="ds-card">
+      <span class="ds-tag dt-synthetic">Text · Generated</span>
+      <div class="ds-name">rag_faq_docs/</div>
+      <div class="ds-size">30 documents · ~200 words each</div>
+      <div class="ds-desc">Synthetic bank FAQ and policy documents covering account management, fees, credit, loans, and online banking. Chunked and indexed in FAISS for RAG retrieval.</div>
+    </div>
+
+    <div class="ds-card">
+      <span class="ds-tag dt-generated">SQLite · Generated</span>
+      <div class="ds-name">synthetic_transactions.db</div>
+      <div class="ds-size">~50,000 rows</div>
+      <div class="ds-desc">Fields: txn_id, customer_id, date, merchant, category, amount, balance. 3 years of history per customer. GBM-driven amount variability.</div>
+    </div>
+
+    <div class="ds-card">
+      <span class="ds-tag dt-generated">CSV · Generated</span>
+      <div class="ds-name">intent_classification_v2.csv</div>
+      <div class="ds-size">600 rows · 4 classes</div>
+      <div class="ds-desc">150 utterances per class: GENERATE_STATEMENT, QUERY_TRANSACTIONS, HELP, DOWNLOAD_CSV.</div>
+    </div>
+
+    <div class="ds-card">
+      <span class="ds-tag dt-generated">CSV · Generated</span>
+      <div class="ds-name">text_to_sql_transactions.csv</div>
+      <div class="ds-size">200+ NL→SQL pairs</div>
+      <div class="ds-desc">Natural language question + ground-truth SQL against the transactions table. Used to fine-tune t5-small.</div>
+    </div>
+
+    <div class="ds-card">
+      <span class="ds-tag dt-hub">HuggingFace Hub</span>
+      <div class="ds-name">Spider (finance subset)</div>
+      <div class="ds-size">~400 pairs</div>
+      <div class="ds-desc">Yale Spider NL→SQL pairs filtered to finance/banking domain. Augments the synthetic T5 training set.</div>
+    </div>
+
+    <div class="ds-card">
+      <span class="ds-tag dt-synthetic">Text · Generated</span>
+      <div class="ds-name">FAQ / Policy Docs</div>
+      <div class="ds-size">30+ documents</div>
+      <div class="ds-desc">Synthetic bank FAQ and product policy documents. Chunked, embedded with all-MiniLM-L6-v2, indexed in FAISS for RAG retrieval.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ DEEP LEARNING MODELS ═══════════════ -->
+<div class="section">
+  <div class="section-title">Deep Learning Models</div>
+  <div class="three-col">
+
+    <div class="card accent-purple">
+      <div class="card-title">1. BERT Intent Classifier</div>
+      <div class="card-sub">
+        <strong>Base:</strong> bert-base-uncased (HuggingFace)<br>
+        <strong>Task:</strong> 5-class intent classification<br>
+        <strong>Training:</strong> intent_classification_v2.csv, 80/20 split<br>
+        <strong>Epochs:</strong> 3 &nbsp;|&nbsp; <strong>LR:</strong> 2e-5 &nbsp;|&nbsp; <strong>Batch:</strong> 16<br>
+        <strong>Eval:</strong> Weighted F1, confusion matrix<br>
+        <strong>Framework:</strong> HuggingFace Trainer API
+      </div>
+    </div>
+
+    <div class="card accent-orange">
+      <div class="card-title">2. T5 Text-to-SQL</div>
+      <div class="card-sub">
+        <strong>Base:</strong> t5-small (HuggingFace)<br>
+        <strong>Task:</strong> Seq2seq NL → SQL generation<br>
+        <strong>Training:</strong> Spider finance + synthetic pairs<br>
+        <strong>Epochs:</strong> 5 &nbsp;|&nbsp; <strong>LR:</strong> 3e-4 &nbsp;|&nbsp; <strong>Batch:</strong> 8<br>
+        <strong>Eval:</strong> Exact-match SQL accuracy<br>
+        <strong>Execution:</strong> sqlite3 against transactions.db
+      </div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-title">3. FAISS RAG (Help)</div>
+      <div class="card-sub">
+        <strong>Embeddings:</strong> all-MiniLM-L6-v2<br>
+        <strong>Index:</strong> faiss-cpu (cosine similarity)<br>
+        <strong>Corpus:</strong> 30+ FAQ / policy documents<br>
+        <strong>Retrieval:</strong> top-3 chunks per query<br>
+        <strong>Eval:</strong> Retrieval precision@3<br>
+        <strong>Triggered by:</strong> HELP intent from BERT
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:12px;">
+    <div class="callout co-purple">
+      <strong>Stretch Goal — LSTM Autoencoder (Anomaly Detection):</strong> If time permits after Day 7, Pair B can add an LSTM Autoencoder trained on customer transaction sequences to flag statistical anomalies (unusually large single transactions, unusual merchant categories). Adds a third DL architecture to the project and strengthens the rubric score under "model depth and variety."
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SAMPLE CHAT INTERACTIONS ═══════════════ -->
+<div class="section">
+  <div class="section-title">Sample Chat Interactions</div>
+  <div class="two-col">
+
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#555;margin-bottom:8px;">Scenario A — Statement Generation + CSV Download</div>
+      <div class="chat-window">
+        <div class="msg user">
+          <div class="avatar av-user">J</div>
+          <div class="bubble user">I need my account statement from January to March 2025</div>
+        </div>
+        <div class="msg">
+          <div class="avatar av-bot">B</div>
+          <div class="bubble bot">
+            Sure, Jane! I found <strong>47 transactions</strong> between Jan 1 and Mar 31, 2025.<br>
+            Total debits: $3,218.44 &nbsp;|&nbsp; Total credits: $5,100.00<br>
+            <span class="dl-btn">&#8659; Download statement.csv</span>
+          </div>
+        </div>
+        <div class="msg user">
+          <div class="avatar av-user">J</div>
+          <div class="bubble user">Show me a chart of my spending by category</div>
+        </div>
+        <div class="msg">
+          <div class="avatar av-bot">B</div>
+          <div class="bubble bot">Here's your spending breakdown for that period: [bar chart rendered via st.pyplot()]</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#555;margin-bottom:8px;">Scenario B — Transaction Query (Text-to-SQL)</div>
+      <div class="chat-window">
+        <div class="msg user">
+          <div class="avatar av-user">J</div>
+          <div class="bubble user">Show me all purchases over $500 last month</div>
+        </div>
+        <div class="msg">
+          <div class="avatar av-bot">B</div>
+          <div class="bubble bot">
+            Generated SQL: <code style="font-size:10px;">SELECT * FROM transactions WHERE customer_id=42 AND amount&gt;500 AND date&gt;='2025-04-01' AND date&lt;='2025-04-30'</code><br><br>
+            Found <strong>3 transactions</strong>:<br>
+            Apr 5 &mdash; Electronics Mart &mdash; $849.99<br>
+            Apr 12 &mdash; Air Canada &mdash; $720.00<br>
+            Apr 28 &mdash; Dentist Office &mdash; $550.00
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+      <div style="font-size:11px;font-weight:700;color:#555;margin-bottom:8px;">Scenario C — Help / FAQ (RAG)</div>
+      <div class="chat-window">
+        <div class="msg user">
+          <div class="avatar av-user">J</div>
+          <div class="bubble user">What do I need to apply for a credit card increase?</div>
+        </div>
+        <div class="msg">
+          <div class="avatar av-bot">B</div>
+          <div class="bubble bot">Based on our policy documents: You'll need your most recent 2 pay stubs or tax return, a government-issued ID, and your current credit limit reference number. Applications take 3–5 business days to process...</div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ TEAM TABLE ═══════════════ -->
+<div class="section">
+  <div class="section-title">Team &amp; Workstream Assignments</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Student ID</th>
+        <th>Role</th>
+        <th>Primary Deliverable</th>
+        <th>Days</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-pm">PM</span></td>
+        <td>____________</td>
+        <td>PM + Streamlit UI + Router</td>
+        <td>app.py (UI + intent routing + pipeline wiring), GitHub repo, Day 1 checklist, final integration</td>
+        <td>All 10</td>
+      </tr>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-pair-a">Pair A-1</span></td>
+        <td>____________</td>
+        <td>BERT Intent Classifier</td>
+        <td>intent_model.py — BERT fine-tuning, training loop, F1 eval, saved model weights</td>
+        <td>2–6</td>
+      </tr>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-pair-a">Pair A-2</span></td>
+        <td>____________</td>
+        <td>NER + Model Evaluation</td>
+        <td>ner_extractor.py (spaCy + regex date/entity extraction), evaluation scripts (F1, confusion matrix, SQL accuracy)</td>
+        <td>2–7</td>
+      </tr>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-pair-b">Pair B-1</span></td>
+        <td>____________</td>
+        <td>T5 Text-to-SQL</td>
+        <td>text2sql_model.py — T5 fine-tuning, SQL generation, exact-match eval, optional LSTM Autoencoder</td>
+        <td>2–7</td>
+      </tr>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-pair-b">Pair B-2</span></td>
+        <td>____________</td>
+        <td>Transaction DB + Statement Gen + CSV</td>
+        <td>transaction_handler.py — SQLite execution, pandas date-range filter, st.download_button CSV export, matplotlib charts</td>
+        <td>2–7</td>
+      </tr>
+      <tr>
+        <td>_________________ <span class="pair-tag tag-solo">Solo</span></td>
+        <td>____________</td>
+        <td>Synthetic Data + EDA + RAG + Report</td>
+        <td>generate_data_v2.py (transactions + intent CSV + FAQ docs), eda.ipynb, rag_index.py (FAISS + FAQ docs), final report + slides</td>
+        <td>1–10</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ 10-DAY TIMELINE ═══════════════ -->
+<div class="section">
+  <div class="section-title">10-Day Sprint Timeline</div>
+  <div class="timeline">
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">1</span>Setup</div>
+      <div class="tl-focus">Repo + Env + Data</div>
+      <div class="tl-body"><strong>PM:</strong> GitHub repo, branches (main, dev, feature/*), project board. <strong>All:</strong> clone, venv, install requirements. Solo: run generate_data_v2.py — produce synthetic_transactions.db, intent CSV, text-to-SQL CSV, and FAQ docs. PM: scaffold folder structure with Claude Code. All: verify Jupyter and Streamlit launch without errors. Complete Day 1 checklist before end of session.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">2</span>EDA</div>
+      <div class="tl-focus">Explore Data</div>
+      <div class="tl-body"><strong>Solo:</strong> eda.ipynb — transaction distribution, category breakdown, balance trends, customer profile stats, correlation heatmaps. <strong>Pair A:</strong> tokenise intent_classification_v2.csv with BERT tokeniser; confirm 4-class balance. <strong>Pair B:</strong> load transactions.db, run 5 manual SQL queries, verify date range and amount distribution. <strong>PM:</strong> stub out app.py with Streamlit chat layout and session_state scaffolding.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">3</span>Models</div>
+      <div class="tl-focus">Training Begins</div>
+      <div class="tl-body"><strong>Pair A-1:</strong> BERT training loop — HuggingFace Trainer, 3 epochs. <strong>Pair B-1:</strong> T5 training loop — seq2seq, 5 epochs. <strong>Pair A-2:</strong> build NER date extractor (regex + spaCy), test on 20 sample queries. <strong>Pair B-2:</strong> transaction_handler.py — date-range filter function, CSV export function. <strong>Solo:</strong> chunk FAQ docs, build FAISS index, test top-3 retrieval.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">4</span>Models</div>
+      <div class="tl-focus">Training Cont.</div>
+      <div class="tl-body"><strong>Pair A-1:</strong> BERT — run eval, compute F1 + confusion matrix, save model weights. <strong>Pair B-1:</strong> T5 — run eval, compute exact-match SQL accuracy, fix top failure cases. <strong>PM:</strong> wire BERT intent output into app.py router; connect each branch to its handler. <strong>Pair B-2:</strong> wire transaction handler into app.py — st.download_button, matplotlib chart. Claude Code: auto-generate evaluation metric scripts.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">5</span>Integration</div>
+      <div class="tl-focus">Wire Pipeline</div>
+      <div class="tl-body"><strong>PM:</strong> integrate BERT intent classifier into app.py router. Wire NER output to transaction handler and T5. <strong>Pair A-2:</strong> write full eval report: BERT F1, T5 exact-match, RAG precision@3. <strong>All:</strong> end-to-end test: type 10 sample utterances, verify routing is correct for all 4 intent classes. Fix any misroutes.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">6</span>Testing</div>
+      <div class="tl-focus">Debug + Refine</div>
+      <div class="tl-body"><strong>All:</strong> run 50 test conversations (10 per intent class). Log failures. <strong>PM:</strong> fix routing edge cases (low-confidence intent predictions, ambiguous queries). <strong>Pair B:</strong> debug SQL execution errors; patch edge cases with Claude Code. <strong>Pair A:</strong> retrain BERT if F1 &lt; 0.85 — adjust class weights or augment low-confidence class. <strong>Solo:</strong> add matplotlib spending charts to statement output.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">7</span>Stretch</div>
+      <div class="tl-focus">Stretch Goals</div>
+      <div class="tl-body"><strong>Optional — Pair B-1:</strong> LSTM Autoencoder on transaction sequences for anomaly detection (adds third DL model). <strong>All:</strong> polish Streamlit UI — clear session button, chat history, better error messages, loading spinners. <strong>Solo:</strong> begin report draft — problem statement, architecture diagram, dataset description. PM: review all branches; merge to dev.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day"><span class="day-num">8</span>Code QA</div>
+      <div class="tl-focus">Cleanup</div>
+      <div class="tl-body"><strong>All:</strong> Claude Code code review — add docstrings, type hints, remove debug prints, verify PEP 8 compliance. <strong>PM:</strong> final merge to main; tag v1.0. Confirm app runs from clean venv with a single <code>streamlit run app.py</code>. <strong>Pair A-2:</strong> finalise eval report notebook with all metrics and plots. <strong>Solo:</strong> finish report draft and slide deck.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day present"><span class="day-num">9</span>Present</div>
+      <div class="tl-focus present">Presentation Day</div>
+      <div class="tl-body"><strong>All 6 members present.</strong> Live demo: authenticate as a test customer → generate statement → download CSV. Walk through BERT intent confusion matrix. Show T5 SQL output side-by-side with ground truth. Explain FAISS retrieval pipeline. Each member speaks to their workstream. Q&amp;A: 5 minutes.</div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-day submit"><span class="day-num">10</span>Submit</div>
+      <div class="tl-focus submit">Final Submission</div>
+      <div class="tl-body"><strong>All:</strong> confirm GitHub repo is public (or shared), README.md complete, requirements.txt pinned, all notebooks cleared and re-run top-to-bottom. Submit: GitHub repo link, final report PDF, slide deck PDF. PM verifies all file names and submission checklist before end of Day 10.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ TECH STACK ═══════════════ -->
+<div class="section">
+  <div class="section-title">Technology Stack (Python Only)</div>
+
+  <div class="two-col" style="margin-bottom:12px;">
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#333;margin-bottom:8px;">Core ML &amp; NLP</div>
+      <div class="stack-grid">
+        <div class="stack-pill"><span class="dot dot-purple"></span>torch</div>
+        <div class="stack-pill"><span class="dot dot-purple"></span>transformers</div>
+        <div class="stack-pill"><span class="dot dot-purple"></span>sentence-transformers</div>
+        <div class="stack-pill"><span class="dot dot-purple"></span>datasets (HF)</div>
+        <div class="stack-pill"><span class="dot dot-purple"></span>scikit-learn</div>
+        <div class="stack-pill"><span class="dot dot-teal"></span>faiss-cpu</div>
+        <div class="stack-pill"><span class="dot dot-teal"></span>spacy</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:700;color:#333;margin-bottom:8px;">UI &amp; Data</div>
+      <div class="stack-grid">
+        <div class="stack-pill"><span class="dot dot-blue"></span>streamlit</div>
+        <div class="stack-pill"><span class="dot dot-green"></span>pandas</div>
+        <div class="stack-pill"><span class="dot dot-green"></span>numpy</div>
+        <div class="stack-pill"><span class="dot dot-green"></span>sqlite3</div>
+        <div class="stack-pill"><span class="dot dot-orange"></span>matplotlib</div>
+        <div class="stack-pill"><span class="dot dot-orange"></span>seaborn</div>
+        <div class="stack-pill"><span class="dot dot-navy"></span>jupyter</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="callout co-blue" style="margin-bottom:0;">
+      <strong>Cursor:</strong> Primary IDE for all 6 members. Use inline AI (Cmd+K / Ctrl+K) to generate boilerplate, refactor functions, and explain unfamiliar library APIs. Open the project root as workspace so the AI has full cross-file context. Each workstream member works on their own Git branch inside Cursor.
+    </div>
+    <div class="callout co-purple" style="margin-bottom:0;">
+      <strong>Claude Code:</strong> Used for scaffolding, debugging, and pipeline integration. Day 1 — scaffold folder structure; Day 4 — auto-generate eval metric scripts; Day 6 — debug SQL execution errors and patch edge cases; Day 8 — code review (docstrings, type hints, remove debug prints). Always run from the project root.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ RUBRIC ALIGNMENT ═══════════════ -->
+<div class="section">
+  <div class="section-title">Rubric Alignment</div>
+  <div class="three-col">
+    <div class="card accent-green">
+      <div class="card-title">Deep Learning Models</div>
+      <div class="card-sub">BERT fine-tuning (classification) + T5 fine-tuning (seq2seq) + FAISS RAG (retrieval). Three distinct DL components. Optional LSTM Autoencoder adds a fourth architecture (time-series).</div>
+    </div>
+    <div class="card accent-blue">
+      <div class="card-title">Dataset &amp; EDA</div>
+      <div class="card-sub">Two SQLite databases (customers + transactions), synthetic intent CSV (600 rows), text-to-SQL pairs (200+), FAQ corpus. Full EDA notebook with distribution plots, heatmaps, and balance checks.</div>
+    </div>
+    <div class="card accent-purple">
+      <div class="card-title">End-to-End Application</div>
+      <div class="card-sub">Streamlit app with live authentication, NLP routing, SQL execution, and CSV export. Demonstrates real-world deployment readiness and comprehensive integration of all model components.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="page-footer">
+  BankAssist v2.0 &nbsp;&mdash;&nbsp; AASD 4010 Deep Learning I &nbsp;&mdash;&nbsp; George Brown College &nbsp;&mdash;&nbsp; May 2026
+</div>
+
+</body>
+</html>
